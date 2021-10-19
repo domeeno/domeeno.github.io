@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Dominic Flocea</title>
+    <link>https://domeeno.github.io/posts/</link>
+    <description>Dominic Flocea (Posts)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Oct 2021 00:35:42 +0300</lastBuildDate>
+    
+    <atom:link href="https://domeeno.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hi People!</title>
+      <link>https://domeeno.github.io/posts/hi/</link>
+      <pubDate>Wed, 20 Oct 2021 00:35:42 +0300</pubDate>
+      
+      <guid>https://domeeno.github.io/posts/hi/</guid>
+      <description>&lt;p&gt;Hi, I&amp;rsquo;m a software engineer just starting on my path, currently as I&amp;rsquo;m writing this I haven&amp;rsquo;t even finished my first university cycle, but I&amp;rsquo;m almost there. I&amp;rsquo;m excited to start this &amp;ldquo;Blog&amp;rdquo; and write about - pretty much anything that makes me feel inspired. I would like to start this out with a quote:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Sometimes the best way to solves your own problems, is to help someone else.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ndash; &lt;cite&gt;Uncle Iroh&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A lot of my inspiration to write comes from the frustrations that I have with a language, framework or frustrations that I generally have as a developer. I do have a lot of them. But we always manage to overcome them, don&amp;rsquo;t we?&lt;/p&gt;
+&lt;p&gt;Maybe, just maybe, I could help someone out there with their frustrations that they had being in the same position as I was, maybe it&amp;rsquo;s you? Hi, welcome, have a seat, grab a tea. I feel extremely lucky to have you here, whatever brought you here in the first place, I&amp;rsquo;m happy you are here. My name is Dominic, currently a 22 years old student and here&amp;rsquo;s a bit I can share with you as an appreciation for you being here.&lt;/p&gt;
+&lt;!-- wp:image {&#34;align&#34;:&#34;center&#34;,&#34;id&#34;:86,&#34;width&#34;:532,&#34;height&#34;:352,&#34;sizeSlug&#34;:&#34;large&#34;,&#34;linkDestination&#34;:&#34;none&#34;} --&gt;
+&lt;div class=&#34;wp-block-image&#34;&gt;&lt;figure class=&#34;aligncenter size-large is-resized&#34;&gt;&lt;img src=&#34;https://cdn.pixabay.com/photo/2014/10/01/10/44/hedgehog-468228_960_720.jpg&#34; alt=&#34;&#34; class=&#34;wp-image-86&#34; width=&#34;532&#34; height=&#34;352&#34;/&gt;&lt;figcaption&gt;hedgehog pause&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;!-- /wp:image --&gt;
+&lt;p&gt;Although I&amp;rsquo;m just a student I already had professional experience in the field. I was lucky to find a job that really complimented what I want to do. I was building things from scratch and therefore had experience with many languages and frameworks.&lt;/p&gt;
+&lt;p&gt;I worked with javascript, java, python, elixir, kotlin and used React, Spring, Django, Phoenix, NodeJS, PostgreSQL, MySQL, MongoDB, GraphQL to name a few.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m proud of it, to experience such a range of great tools. I quickly began to see how little matters the language, the framework. I love problem solving. That&amp;rsquo;s me, I want to solve problems and do it using different tools and approaches.&lt;/p&gt;
+&lt;p&gt;Doing this, I&amp;rsquo;ve encountered moments where I was just lost, when I was not finding the right documentation, or the documentation was hard for me to understand so I had to go through trial and errors and come up with a work-a-round, or find the solution which wasn&amp;rsquo;t documented anywhere but it existed right there,  so I was basically finding it the hard way.&lt;/p&gt;
+&lt;p&gt;And one thing that I also love besides problem solving is to share what I know with others and always help when asked for advice.&lt;/p&gt;
+&lt;p&gt;I will keep this blog for you. You, who may need a solution, a case documentation to a particular problem, or you who is just into reading articles and dev rants.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
