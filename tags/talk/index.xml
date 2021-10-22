@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dominic Flocea</title>
-    <link>https://domeeno.github.io/</link>
-    <description>Dominic Flocea</description>
+    <title>Talk on Dominic Flocea</title>
+    <link>https://domeeno.github.io/tags/talk/</link>
+    <description>Dominic Flocea (Talk)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Oct 2021 00:35:42 +0300</lastBuildDate>
     
-    <atom:link href="https://domeeno.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://domeeno.github.io/tags/talk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -33,23 +33,6 @@
 &lt;p&gt;Doing this, I&amp;rsquo;ve encountered moments where I was just lost, when I was not finding the right documentation, or the documentation was hard for me to understand so I had to go through trial and errors and come up with a work-a-round, or find the solution which wasn&amp;rsquo;t documented anywhere but it existed right there,  so I was basically finding it the hard way.&lt;/p&gt;
 &lt;p&gt;And one thing that I also love besides problem solving is to share what I know with others and always help when asked for advice.&lt;/p&gt;
 &lt;p&gt;I will keep this blog for you. You, who may need a solution, a case documentation to a particular problem, or you who is just into reading articles and dev rants.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://domeeno.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://domeeno.github.io/about/</guid>
-      <description>&lt;p&gt;&lt;img align=&#34;center&#34; alt=&#34;SoftwareEngineer&#34; width=&#34;400px&#34; src=&#34;https://domeeno.github.io/images/me.png&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h1 style=&#34;text-align: center&#34;&gt;I&#39;m Dominic Flocea, FullStack developer from Chișinău, Moldova &lt;/h1&gt;
-&lt;h2 style=&#34;text-align: center&#34;&gt;-&lt;h2&gt;
-&lt;h2 style=&#34;text-align: center&#34;&gt;I love to find creativity in programming and experiment with a lot of different laguages and frameworks &lt;/h2&gt;
-&lt;h4 style=&#34;text-align: center&#34;&gt;Currently learning something, most probably... &lt;/h2&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github-readme-stats.vercel.app/api?username=domeeno&amp;amp;count_private=true&amp;amp;show_icons=true&#34; alt=&#34;Dominic&amp;rsquo;s github stats&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
