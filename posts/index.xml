@@ -17,11 +17,12 @@
       <pubDate>Sun, 18 Sep 2022 16:19:32 +0300</pubDate>
       
       <guid>https://domeeno.github.io/posts/mindmap0/</guid>
-      <description>&lt;p&gt;&lt;i&gt;This is a project is based on building an app in a distributed manner, using the distributed systems principles, building blocks and practices at the best of my understanding and skills. &lt;/i&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;i&gt;This project is based on building an app in a distributed manner, using distributed systems principles, building blocks and practices at the best of my understanding and skill. &lt;/i&gt;&lt;/p&gt;
 &lt;br/&gt;
+&lt;img src=&#34;https://www.mindmapper.com/wp-content/uploads/2019/01/mind-map-graphic-1024x640.jpg&#34;/&gt;
 &lt;h2 id=&#34;project-description--goals-non-technical&#34;&gt;Project Description &amp;amp; Goals (Non Technical)&lt;/h2&gt;
-&lt;p&gt;Imagine a &lt;em&gt;&lt;strong&gt;medium + udemy presented in a Mind Map manner&lt;/strong&gt;&lt;/em&gt;. Mind maps are a way to store information on different &lt;strong&gt;subjects&lt;/strong&gt; to improve the learning experience through a visually structured hierarchical tree. Subjects are presented from top level views to more advanced topics that are related to each other and grouped between.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;The system will:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The app will be a &lt;em&gt;&lt;strong&gt;medium + udemy with Mind Maps&lt;/strong&gt;&lt;/em&gt;. Mind maps are a way to store information on different &lt;strong&gt;subjects&lt;/strong&gt; to improve the learning experience through a visually structured hierarchical tree. Subjects are presented from top level views to more advanced topics that are related to each other and grouped between. The learning sources will be text-based.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The app will:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Structure and Display subjects in a hierarchical manner&lt;/li&gt;
 &lt;li&gt;Keep track of each user&amp;rsquo;s progress on a subject&lt;/li&gt;
