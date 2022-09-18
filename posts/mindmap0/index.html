@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Distributed Systems #0 - General System Architecture - Dominic Flocea</title>
+
+<meta name="description" content="This is a project is based on building an app in a distributed manner, using the distributed systems principles, building blocks and practices at the best of my understanding and skills. 
+Project Description &amp; Goals (Non Technical) Imagine a medium &#43; udemy presented in a Mind Map manner. Mind maps are a way to store information on different subjects to improve the learning experience through a visually structured hierarchical tree.">
+
+<link rel="icon" type="image/x-icon" href="https://domeeno.github.io/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://domeeno.github.io/favicon.png">
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://domeeno.github.io/css/style.min.5dbcfe20b7a5085f11e6fb4d507471e8241c34a3b4ec3a1d59e5e382c6dd6630.css" integrity="sha256-Xbz&#43;ILelCF8R5vtNUHRx6CQcNKO07DodWeXjgsbdZjA=">
+    
+
+
+
+
+
+
+<meta property="og:title" content="Distributed Systems #0 - General System Architecture" />
+<meta property="og:description" content="This is a project is based on building an app in a distributed manner, using the distributed systems principles, building blocks and practices at the best of my understanding and skills. 
+Project Description &amp; Goals (Non Technical) Imagine a medium &#43; udemy presented in a Mind Map manner. Mind maps are a way to store information on different subjects to improve the learning experience through a visually structured hierarchical tree." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://domeeno.github.io/posts/mindmap0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-18T16:19:32+03:00" />
+<meta property="article:modified_time" content="2022-09-18T16:19:32+03:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Distributed Systems #0 - General System Architecture"/>
+<meta name="twitter:description" content="This is a project is based on building an app in a distributed manner, using the distributed systems principles, building blocks and practices at the best of my understanding and skills. 
+Project Description &amp; Goals (Non Technical) Imagine a medium &#43; udemy presented in a Mind Map manner. Mind maps are a way to store information on different subjects to improve the learning experience through a visually structured hierarchical tree."/>
+
+
+
+    
+        <link rel="webmention" href="https://webmention.io/hugo-theme-anubis/webmention" />
+        
+            <link rel="pingback" href="https://webmention.io/hugo-theme-anubis/xmlrpc" />
+        
+    
+    
+        <link rel="webmention" href="https://yourdomain.com/webemntions/receive" />
+    
+
+
+
+
+
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQJJ1EDL8C"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-YQJJ1EDL8C', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <div class="header-top">
+    <h1 class="site-title">
+        <a href="/">Dominic Flocea</a>
+    </h1>
+    <ul class="social-icons">
+
+
+    
+        
+        
+        <li>
+            <a href="https://github.com/domeeno" title="Github" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/in/dominic-flocea-227ab3206" title="Linkedin" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://twitter.com/dominic_whtver" title="Twitter" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+</ul>
+
+</div>
+
+    <nav>
+        
+        
+        <a class="" href="https://domeeno.github.io/" title="">Home</a>
+        
+        <a class="" href="https://domeeno.github.io/posts/" title="">Blog</a>
+        
+        <a class="" href="https://domeeno.github.io/about/" title="">About</a>
+        
+        <a class="" href="https://domeeno.github.io/tags/" title="">Tags</a>
+        
+    </nav>
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+
+    <article class="post h-entry">
+        <header class="post-header">
+            <h1 class="p-name post-title">Distributed Systems #0 - General System Architecture</h1>
+
+            
+        </header>
+        <div class="content e-content">
+            <p><i>This is a project is based on building an app in a distributed manner, using the distributed systems principles, building blocks and practices at the best of my understanding and skills. </i></p>
+<br/>
+<h2 id="project-description--goals-non-technical">Project Description &amp; Goals (Non Technical)</h2>
+<p>Imagine a <em><strong>medium + udemy presented in a Mind Map manner</strong></em>. Mind maps are a way to store information on different <strong>subjects</strong> to improve the learning experience through a visually structured hierarchical tree. Subjects are presented from top level views to more advanced topics that are related to each other and grouped between.</p>
+<p><strong>The system will:</strong></p>
+<ul>
+<li>Structure and Display subjects in a hierarchical manner</li>
+<li>Keep track of each user&rsquo;s progress on a subject</li>
+<li>Track course reads and likeability</li>
+<li>Save user&rsquo;s saved, clicked and liked courses</li>
+<li>User registration and auth</li>
+<li>Provide users with the possibility to upload their own mind-maps representations of the topics they want to share</li>
+</ul>
+<p><strong>Nice to have <em>(depending on the time &amp; complexity)</em>:</strong></p>
+<ul>
+<li>Real time editing</li>
+<li>See current users reading a subject</li>
+<li>Comment sections</li>
+<li>User bookmark system</li>
+<li>Tag system and recommendations</li>
+<li>Role system</li>
+<li>Automatic hierarchy and node relations</li>
+</ul>
+<br/>
+<h2 id="system-architecture">System Architecture</h2>
+<br/>
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2022-09-18T15:13:33.309Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&quot; etag=\&quot;wn_Jv5aNdkXHnDt_0LdM\&quot; version=\&quot;20.3.2\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;cb_ynF3PT7aozFD-mhS3\&quot; name=\&quot;Page-1\&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+<ol>
+<li>Front-end written with - <span style="color: #61DBFB;"><strong>React</strong></span></li>
+<li>Api-Gateway written in - <span style="color: #7B6686;"><strong>Elixir</strong></span></li>
+<li>Back-end written in - <span style="color: #F28800;"><strong>Kotlin</strong></span>
+<ul>
+<li><strong>Identity</strong> will manage user registration and authorizations, ex:
+<ul>
+<li>POST/PUT user info. Provide security token</li>
+</ul>
+</li>
+<li><strong>File Bucket</strong> will store the Subjects' documents, ex:
+<ul>
+<li>POST/PUT/DELETE file</li>
+</ul>
+</li>
+<li><strong>Course Service</strong> - course hierarchy, relations, ex:
+<ul>
+<li>POST/PUT subject</li>
+</ul>
+</li>
+<li><strong>User Dashboard</strong> will manage user saving/liking/progress/created subjects, ex:
+<ul>
+<li>PUT
+<ul>
+<li>saves</li>
+<li>likes</li>
+<li>progress</li>
+</ul>
+</li>
+<li>POST/PUT/DELETE Subjects</li>
+</ul>
+</li>
+<li><strong>Course Dashboard</strong> - course statistics, ex:
+<ul>
+<li>POST/PUT/DELETE statistics</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<br/>
+<h2 id="backend-communication-example">Backend communication example:</h2>
+<br/>
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; modified=\&quot;2022-09-18T15:56:46.681Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&quot; etag=\&quot;MkN3zlDEdvY30ly_RG6f\&quot; version=\&quot;20.3.2\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;dKCyTXUS-7JZHuPryBX6\&quot; name=\&quot;Page-1\&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+<p>*Some back-end services of course could be merged together, but to showcase distribution they were purposefully split</p>
+<br/>
+<h2 id="other-technicalities">Other Technicalities</h2>
+<h3 id="elixir-gateway">Elixir Gateway</h3>
+<p>The functional programming language Elixir incorporates qualities that a well designed Distributed System should have: Scalable, Fault-Tolerant, Reliable, Concurrent are the most important ones. And a gateway is a very important piece of the system - if any of the backend system falls, the other should work just fine and we could still use the app in some way, the story with the gateway is very different. Elixir is built to last and endure high loads. It&rsquo;s strategy for let it fail and supervision builds trust with the developer that the service will do fine.</p>
+<h3 id="sql-and-nosql">SQL and NoSQL</h3>
+<p><strong>Postgres (SQL)</strong> will be used to store users table which shouldn&rsquo;t be subject to future change. Once well defined it shouldn&rsquo;t be a problem to be left as is, and future modification will be improbable and we can rely on SQL&rsquo;s performance to retrieve and store data. 
+<strong>MongoDB (NoSQL)</strong> is a flexible document based NoSQL database, if there are any changes in the future or the system will scale, we can leverage its qualities to make those kind of transitions less problematic or even seamlessly compared to the SQL databases.</p>
+<h3 id="kotlin">Kotlin</h3>
+<p>Kotlin has a powerful Reactive programming API which empowers Responsivness, Resiliency, Elasticity and is Message Driven - qualities which the system will only benefit from.</p>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date dt-published">2022-09-18</div>
+    
+    
+    <a class="post-hidden-url u-url" href="https://domeeno.github.io/posts/mindmap0/">https://domeeno.github.io/posts/mindmap0/</a>
+    <a href="https://domeeno.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">Dominic Flocea</a>
+
+
+    <div class="post-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item disabled">
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/posts/hi/">Hi People!</a>
+            
+        </div>
+    </div>
+
+
+
+
+    
+
+    
+
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>© Dominic Flocea, 2022<br>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.<br>
+            
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+    <button class="theme-switcher">
+        Dark theme
+    </button>
+
+    <script>
+    const STORAGE_KEY = 'user-color-scheme'
+    const defaultTheme = "light"
+
+    let currentTheme
+    let switchButton
+    let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const autoChangeScheme = e => {
+        currentTheme = e.matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', currentTheme)
+        changeButtonText()
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        switchButton = document.querySelector('.theme-switcher')
+        currentTheme = detectCurrentScheme()
+        if (currentTheme == 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+        }
+        if (currentTheme == 'auto') {
+            autoChangeScheme(autoDefinedScheme);
+            autoDefinedScheme.addListener(autoChangeScheme);
+        }
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    })
+
+    function detectCurrentScheme() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            return localStorage.getItem(STORAGE_KEY)
+        } 
+        if (defaultTheme) {
+            return defaultTheme
+        } 
+        if (!window.matchMedia) {
+            return 'light'
+        } 
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+        return 'light'
+    }
+
+    function changeButtonText()
+    {   
+        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+    }
+
+    function switchTheme(e) {
+        if (currentTheme == 'dark') {
+            localStorage.setItem(STORAGE_KEY, 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            currentTheme = 'light'
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            currentTheme = 'dark'
+        }
+        changeButtonText()
+    }
+    </script>
+   
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=https://domeeno.github.io/ class="p-name u-url url fn" rel="me">Dominic Flocea</a> 
+
+     
+        /
+        <a class="p-email u-email email" rel="me" href="mailto:dominicflocea.dev@gmail.com">dominicflocea.dev@gmail.com</a>
+    
+
+    
+</p> 
+</footer>
+
+        
+    </div>
+</body>
+</html>
