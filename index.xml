@@ -13,94 +13,101 @@
     
     <item>
       <title>Distributed Systems #0 - General System Architecture</title>
-      <link>https://domeeno.github.io/posts/mindmap0/</link>
+      <link>https://domeeno.github.io/posts/distributed-0/</link>
       <pubDate>Sun, 18 Sep 2022 16:19:32 +0300</pubDate>
       
-      <guid>https://domeeno.github.io/posts/mindmap0/</guid>
+      <guid>https://domeeno.github.io/posts/distributed-0/</guid>
       <description>&lt;p&gt;&lt;i&gt;This project is based on building an app in a distributed manner, using distributed systems principles, building blocks and practices at the best of my understanding and skill. &lt;/i&gt;&lt;/p&gt;
 &lt;br/&gt;
 &lt;img src=&#34;https://www.mindmapper.com/wp-content/uploads/2019/01/mind-map-graphic-1024x640.jpg&#34;/&gt;
-&lt;h2 id=&#34;project-description--goals-non-technical&#34;&gt;Project Description &amp;amp; Goals (Non Technical)&lt;/h2&gt;
-&lt;p&gt;The app will be a &lt;em&gt;&lt;strong&gt;medium + udemy with Mind Maps&lt;/strong&gt;&lt;/em&gt;. Mind maps are a way to store information on different &lt;strong&gt;subjects&lt;/strong&gt; to improve the learning experience through a visually structured hierarchical tree. Subjects are presented from top level views to more advanced topics that are related to each other and grouped between. The learning sources will be text-based.&lt;/p&gt;
+&lt;h2 id=&#34;1-project-description--goals-non-technical&#34;&gt;1. Project Description &amp;amp; Goals (Non Technical)&lt;/h2&gt;
+&lt;p&gt;The app will be a &lt;em&gt;&lt;strong&gt;medium + udemy with Mind Maps&lt;/strong&gt;&lt;/em&gt;. Mind maps are a way to store information on different &lt;strong&gt;subjects&lt;/strong&gt; to improve the learning experience through a visually structured hierarchical tree. Subjects are presented from top level views to more advanced topics that are related to each other and grouped between.&lt;/p&gt;
+&lt;p&gt;The system will be back-end focused, but a small front-end interface may be tackled to ease the interaction with the server-side flows.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;subject&lt;/strong&gt;&lt;/em&gt; refers to an entire tree composed of topics related to the subject.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;topics&lt;/strong&gt;&lt;/em&gt; refer to a subject&amp;rsquo;s modules and can be referenced or refere to other topics that all relate to one subject. They will be stored as markdown files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
 &lt;p&gt;&lt;strong&gt;The app will:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Structure and Display subjects in a hierarchical manner&lt;/li&gt;
-&lt;li&gt;Keep track of each user&amp;rsquo;s progress on a subject&lt;/li&gt;
-&lt;li&gt;Track course reads and likeability&lt;/li&gt;
-&lt;li&gt;Save user&amp;rsquo;s saved, clicked and liked courses&lt;/li&gt;
-&lt;li&gt;User registration and auth&lt;/li&gt;
-&lt;li&gt;Provide users with the possibility to upload their own mind-maps representations of the topics they want to share&lt;/li&gt;
+&lt;li&gt;Store user subjects and topics;&lt;/li&gt;
+&lt;li&gt;Organize the topics in a hierarchical manner;&lt;/li&gt;
+&lt;li&gt;Log on/Log in users;&lt;/li&gt;
+&lt;li&gt;Save user&amp;rsquo;s saved/liked subjects;&lt;/li&gt;
+&lt;li&gt;Save subject number of saves and likes.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Nice to have &lt;em&gt;(depending on the time &amp;amp; complexity)&lt;/em&gt;:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Real time editing&lt;/li&gt;
-&lt;li&gt;See current users reading a subject&lt;/li&gt;
-&lt;li&gt;Comment sections&lt;/li&gt;
-&lt;li&gt;User bookmark system&lt;/li&gt;
-&lt;li&gt;Tag system and recommendations&lt;/li&gt;
-&lt;li&gt;Role system&lt;/li&gt;
-&lt;li&gt;Automatic hierarchy and node relations&lt;/li&gt;
+&lt;li&gt;Front-end interface&lt;/li&gt;
+&lt;li&gt;Real-time topic editing&lt;/li&gt;
 &lt;/ul&gt;
 &lt;br/&gt;
-&lt;h2 id=&#34;system-architecture&#34;&gt;System Architecture&lt;/h2&gt;
 &lt;br/&gt;
-&lt;div class=&#34;mxgraph&#34; style=&#34;max-width:100%;border:1px solid transparent;&#34; data-mxgraph=&#34;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2022-09-18T15:13:33.309Z\&amp;quot; agent=\&amp;quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;wn_Jv5aNdkXHnDt_0LdM\&amp;quot; version=\&amp;quot;20.3.2\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;cb_ynF3PT7aozFD-mhS3\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;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&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&#34;&gt;&lt;/div&gt;
+&lt;h2 id=&#34;2-system-architecture&#34;&gt;2. System Architecture&lt;/h2&gt;
+&lt;div class=&#34;mxgraph&#34; style=&#34;max-width:100%;border:1px solid transparent;&#34; data-mxgraph=&#34;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2022-09-19T16:25:02.027Z\&amp;quot; agent=\&amp;quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;L0eQ7UA3Sl5gjPfChSrV\&amp;quot; version=\&amp;quot;20.3.2\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;cb_ynF3PT7aozFD-mhS3\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;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&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;text/javascript&#34; src=&#34;https://viewer.diagrams.net/js/viewer-static.min.js&#34;&gt;&lt;/script&gt;
 &lt;ol&gt;
-&lt;li&gt;Front-end written with - &lt;span style=&#34;color: #61DBFB;&#34;&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Front-end or the interface will be written with - &lt;span style=&#34;color: #61DBFB;&#34;&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Api-Gateway written in - &lt;span style=&#34;color: #7B6686;&#34;&gt;&lt;strong&gt;Elixir&lt;/strong&gt;&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Back-end written in - &lt;span style=&#34;color: #F28800;&#34;&gt;&lt;strong&gt;Kotlin&lt;/strong&gt;&lt;/span&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Identity&lt;/strong&gt; will manage user registration and authorizations, ex:
+&lt;li&gt;User Service:
 &lt;ul&gt;
-&lt;li&gt;POST/PUT user info. Provide security token&lt;/li&gt;
+&lt;li&gt;POST/PUT users&lt;/li&gt;
+&lt;li&gt;POST/PUT/DELETE saves/likes/subjects&lt;/li&gt;
+&lt;li&gt;Authorize users&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;File Bucket&lt;/strong&gt; will store the Subjects&#39; documents, ex:
+&lt;li&gt;File bucket:
 &lt;ul&gt;
-&lt;li&gt;POST/PUT/DELETE file&lt;/li&gt;
+&lt;li&gt;POST/PUT markdown files&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Course Service&lt;/strong&gt; - course hierarchy, relations, ex:
+&lt;li&gt;Course Service:
 &lt;ul&gt;
-&lt;li&gt;POST/PUT subject&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;User Dashboard&lt;/strong&gt; will manage user saving/liking/progress/created subjects, ex:
-&lt;ul&gt;
-&lt;li&gt;PUT
-&lt;ul&gt;
-&lt;li&gt;saves&lt;/li&gt;
-&lt;li&gt;likes&lt;/li&gt;
-&lt;li&gt;progress&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;POST/PUT/DELETE Subjects&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Course Dashboard&lt;/strong&gt; - course statistics, ex:
-&lt;ul&gt;
-&lt;li&gt;POST/PUT/DELETE statistics&lt;/li&gt;
+&lt;li&gt;POST/PUT subjects/topics&lt;/li&gt;
+&lt;li&gt;Track hierarchy&lt;/li&gt;
+&lt;li&gt;Store topic&amp;rsquo;s attached document&amp;rsquo;s location&lt;/li&gt;
+&lt;li&gt;Keep track of the number of saves, clicks and likes
+&lt;br/&gt;
+&lt;br/&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;br/&gt;
-&lt;h2 id=&#34;backend-communication-example&#34;&gt;Backend communication example:&lt;/h2&gt;
-&lt;br/&gt;
-&lt;div class=&#34;mxgraph&#34; style=&#34;max-width:100%;border:1px solid transparent;&#34; data-mxgraph=&#34;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2022-09-18T15:56:46.681Z\&amp;quot; agent=\&amp;quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;MkN3zlDEdvY30ly_RG6f\&amp;quot; version=\&amp;quot;20.3.2\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;dKCyTXUS-7JZHuPryBX6\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;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&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&#34;&gt;&lt;/div&gt;
+&lt;h2 id=&#34;3-backend-communication-example&#34;&gt;3. Backend communication example:&lt;/h2&gt;
+&lt;div class=&#34;mxgraph&#34; style=&#34;max-width:100%;border:1px solid transparent;&#34; data-mxgraph=&#34;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2022-09-19T16:37:20.325Z\&amp;quot; agent=\&amp;quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;H_z5jgmcIf-8iOPRzjLf\&amp;quot; version=\&amp;quot;20.3.2\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;dKCyTXUS-7JZHuPryBX6\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;7Zxfc6M2EMA/jacznUkGEBj8GNvJ5aGduWl60/RRBsXQYMQJYTv99JVA/JPAcRxM6Nh3cxdYwQqkn3ZXu9xNwGKz/0Zg7P+OPRRODM3bT8ByYhi6NgPsB5e85RJraueCNQk8cVEleAr+RcWdQpoGHkoaF1KMQxrETaGLowi5tCGDhOBd87IXHDZ7jeEaKYInF4aq9K/Ao34udSytkj+iYO0XPeuaaNnA4mIhSHzo4V1NBO4nYEEwpvnRZr9AIR+8Ylzy+x46WssHIyiix9zwuJw/7r2E7F+dyNv+fE7j5fONkWvZwjAVLywelr4VI4Ai744PJDtzQ5gkgTsBc59uQibQ2SHBaeQh3onGzhJK8Cta4BCT7HZ2jWmbTtlSDCLIJJDQQneEI9bhHO0D+iw08+O/ud5bS5wt96Kb7ORNnKgjIQYnwSlx0YHX18XrIq9BgRjAbwhvECVv7IJdNffF1Pu1aS9kBIWQBtsmO1AguC7VlT18xwF7ZEMTywUUrIjFUrJTqMhfSNxVn+t3FFmyIjbya0QVReyg9tqVKEPpA1jpbVxNQzZa8xU7WNNs1nLBC86evCJu+jPFRcNNklmEO3aBrsf7/DbRXij6kSDC2p8Q2QZstoVa9ty55mZvTFx7Agn1CmWO384PKHqKYUbQjpm3JvdN0gW+L0EY1uC/f5jrpiHepS7PfmeLhzJgcMTEs4MobxGhaH+QUdFqTJtz74jTGsK60cKwqXXj2uDjwzCYF25krFEZGVPrycjIigY3MtaARmbBBiVBVzNTuRhzbGZmeuFmxh6XmXH6MjPOF5sZe0Az8xCE3MjMU/cV0Yu3MaYxMhtTdNYrC6DL5RAEaeZy0tU/fG/7CRzYgNMPzrkQwTBY8zl12TSyOBvM+fQFbIN8Jxo2gefxblohaxpU/thii6/rKkqMe3Nx1w86uuSedLuFHa2FHXA2dnSFHV2Zp086qHIEmw5Kl8YeHBh7DyZ+aTeG9WDF6hqJBzNkhJwTPZiyrdeH9WCG6sF6D41GTd5IgFI4kG3NqTsvw7KGBcpRgAJXoEawlbd7irGN2cBAzRSg8qyeiK1IZ2CT+DDmh+kmvHMprgcov8EVCr/jJBBR6QpTijctEQzFUjx8LGBdIXIf8YttNWakJfQFLWBNzxW9AHV3jV+va/7r99VADiZOdSJA9kZnXvNAjUquRI3BiwCrpzgXyO7o3ESpYcmVqDEEumB2IlH6rKnIHDj3B9S4ZCCeBskpjwQX3ZndWnZjog2tJ2KGzhabxtmJGXUVwgSjQku2RHZfvk3XZE3nBgu0gHUtQ3zFFxXTIuT+sjqEeeG1TnPctc6TrYysaHgrM2Sxs+ubinq658JNj1wBHYHpUTdZ5yuBPsEt52OJ3XSDomsF9DMVUFtrQWfQCqip7qbMvt3WqLfn7/s1Z1R+Ta6A2qfmGpUwXDZPZ3Zrllp7ty6KvJEApXAg1ytODZScgUvqlrrNvxas3o1UBq1YWernwePPBo99ASvr7tTMrmwJZgPn6azz76Cvmd08szudVb/Mpvk/9QMYOcs7+D7Z+j8WL8dOi2IT5CjxVDxmspM5Nx3de2RfP+Lz3uqiQhgXAv2W35Fvi90if0Ix+ytl8ccvSSlOavriTnVGp7pSi+ZBClcwa9n5iPCfMBsD6vNjP0AEEtfPOckaVlyeMK3eUQ8B+EOUw5HwJErC4h3eNyM1AzCI+CXFAy4Z1SsMiXfcS/7Kl6Z2w/78gZIYRwlqv623jEESQzeI1kxgVWd/8qBtyT9ybU8UYBZrvYSZsfADz0PRweTBoUXfQzRnyd++TtVorlxldVOgfILWXzzXVouVF1V3wujAmjI5fz/iEEOP417emy+ElVwE6QbNqq2mmpoQu3lekP/7c1IuHBbFM4dwBXgQgFuzX60Ay5XnIwBmp9W/48+dSPW/IYD7/wA=&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;text/javascript&#34; src=&#34;https://viewer.diagrams.net/js/viewer-static.min.js&#34;&gt;&lt;/script&gt;
-&lt;p&gt;*Some back-end services of course could be merged together, but to showcase distribution they were purposefully split&lt;/p&gt;
 &lt;br/&gt;
-&lt;h2 id=&#34;other-technicalities&#34;&gt;Other Technicalities&lt;/h2&gt;
-&lt;h3 id=&#34;elixir-gateway&#34;&gt;Elixir Gateway&lt;/h3&gt;
-&lt;p&gt;The functional programming language Elixir incorporates qualities that a well designed Distributed System should have: Scalable, Fault-Tolerant, Reliable, Concurrent are the most important ones. And a gateway is a very important piece of the system - if any of the backend system falls, the other should work just fine and we could still use the app in some way, the story with the gateway is very different. Elixir is built to last and endure high loads. It&amp;rsquo;s strategy for let it fail and supervision builds trust with the developer that the service will do fine.&lt;/p&gt;
-&lt;h3 id=&#34;sql-and-nosql&#34;&gt;SQL and NoSQL&lt;/h3&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;4-other-technicalities&#34;&gt;4. Other Technicalities&lt;/h2&gt;
+&lt;h3 id=&#34;--elixir-gateway&#34;&gt;- Elixir Gateway&lt;/h3&gt;
+&lt;p&gt;The functional programming language Elixir incorporates qualities that a well designed Distributed System should have: Scalable, Fault-Tolerant, Reliable, Concurrent are the most important ones. And a gateway is a very important piece of the system - if any of the backend system falls, the other should work just fine and we could still use the app in some way, the story with the gateway is very different. Elixir is built to last and endure high loads. It&amp;rsquo;s strategy for let it fail and supervision builds trust with the developer that the service will do fine. The gateway will use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Load Balancing - distribute requests evenly to the services, based on load.&lt;/li&gt;
+&lt;li&gt;Circuit breaker - it will trip and return a failure response and log it internally&lt;/li&gt;
+&lt;li&gt;Outbound REST API calls&lt;/li&gt;
+&lt;li&gt;Remove a service if a maximum of failed calls is reached&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;--sql-and-nosql-back-end&#34;&gt;- SQL and NoSQL (Back-end)&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Postgres (SQL)&lt;/strong&gt; will be used to store users table which shouldn&amp;rsquo;t be subject to future change. Once well defined it shouldn&amp;rsquo;t be a problem to be left as is, and future modification will be improbable and we can rely on SQL&amp;rsquo;s performance to retrieve and store data. 
 &lt;strong&gt;MongoDB (NoSQL)&lt;/strong&gt; is a flexible document based NoSQL database, if there are any changes in the future or the system will scale, we can leverage its qualities to make those kind of transitions less problematic or even seamlessly compared to the SQL databases.&lt;/p&gt;
-&lt;h3 id=&#34;kotlin&#34;&gt;Kotlin&lt;/h3&gt;
-&lt;p&gt;Kotlin has a powerful Reactive programming API which empowers Responsivness, Resiliency, Elasticity and is Message Driven - qualities which the system will only benefit from.&lt;/p&gt;
+&lt;h3 id=&#34;--kotlin-back-end&#34;&gt;- Kotlin (Back-end)&lt;/h3&gt;
+&lt;p&gt;Kotlin has a powerful Reactive programming API which empowers Responsivness, Resiliency, Elasticity and is Message Driven - qualities which the system will only benefit from. Therefore we can implement the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Task distribution between services&lt;/li&gt;
+&lt;li&gt;Task timeout&lt;/li&gt;
+&lt;li&gt;Status Endpoints&lt;/li&gt;
+&lt;li&gt;Unit testing&lt;/li&gt;
+&lt;li&gt;RPC (remote procedure call)&lt;/li&gt;
+&lt;li&gt;Concurrent Task limit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;--cache&#34;&gt;- Cache&lt;/h3&gt;
+&lt;p&gt;The cache service will prevent the services from unnecessary overloading. If we store public information that was accessed before we can store it and not make unnecessary calls to the services through the network - it can save us time and enhance system&amp;rsquo;s performance.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Query Language - it will be implemented in &lt;span style=&#34;color: #7B6686;&#34;&gt;elixir&lt;/span&gt; and it will use a DSL to retrieve and store data.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
