@@ -12,30 +12,46 @@
     
     
     <item>
-      <title>Hi People!</title>
+      <title>To my readers...</title>
       <link>https://domeeno.github.io/posts/hi/</link>
       <pubDate>Wed, 20 Oct 2021 00:35:42 +0300</pubDate>
       
       <guid>https://domeeno.github.io/posts/hi/</guid>
-      <description>&lt;p&gt;Hi, I&amp;rsquo;m a software engineer just starting on my path and, currently as I&amp;rsquo;m writing this, I haven&amp;rsquo;t even finished my first university cycle, but I&amp;rsquo;m almost there. I&amp;rsquo;m excited to start this Blog and write about - pretty much anything that I think a reader could find useful, because it was to me. I would like to start this out with a quote:&lt;/p&gt;
+      <description>&lt;br/&gt;
+&lt;p&gt;Hi there, How are you doing? Oh, fantastic? you should keep it up, you&amp;rsquo;re doing great and we can see that.&lt;/p&gt;
+&lt;p&gt;Glad you&amp;rsquo;re here, I can tell you something about myself and why I began blogging. I&amp;rsquo;m a software developer, probably just like you, or maybe not, but for one I&amp;rsquo;m certain - We learn our whole life and just like you I&amp;rsquo;m learning new things everywhere I turn, intentionally or unintentionally.&lt;/p&gt;
+&lt;p&gt;You can take useful information from right here. I like to share the challenges I faced and how I overcome them, maybe it will inspire you and help you in your own career, and path to becoming who you want to be. Fortunately the answers aren&amp;rsquo;t always obvious and clear, but that&amp;rsquo;s the beauty of life, you have to turn for some help discovering new perspectives and ways to solve and overcome. I sure did, more than I care to admit, and I want to do my part and give back to the community I&amp;rsquo;ve been a part of for the last few years.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;Sometimes the best way to solves your own problems, is to help someone else.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;&amp;ndash; &lt;cite&gt;Uncle Iroh&lt;/cite&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;why&#34;&gt;Why?&lt;/h2&gt;
-&lt;p&gt;A lot of my inspiration to write comes from the frustrations that I have with a language, framework or frustrations that I generally have as a developer. I do have a lot of them. But we always manage to overcome them, don&amp;rsquo;t we?&lt;/p&gt;
-&lt;p&gt;Maybe, just maybe, I could help someone out there with their frustrations that they had being in the same position as I was, maybe it&amp;rsquo;s you? Hi, welcome, have a seat, grab a tea. I feel extremely lucky to have you here, whatever brought you here in the first place, I&amp;rsquo;m happy you are here. My name is Dominic, currently a 22 years old student and here&amp;rsquo;s a bit I can share with you as an appreciation for you being here.&lt;/p&gt;
-&lt;!-- wp:image {&#34;align&#34;:&#34;center&#34;,&#34;id&#34;:86,&#34;width&#34;:532,&#34;height&#34;:352,&#34;sizeSlug&#34;:&#34;large&#34;,&#34;linkDestination&#34;:&#34;none&#34;} --&gt;
-&lt;div class=&#34;wp-block-image&#34;&gt;&lt;figure class=&#34;aligncenter size-large is-resized&#34;&gt;&lt;img src=&#34;https://cdn.pixabay.com/photo/2014/10/01/10/44/hedgehog-468228_960_720.jpg&#34; alt=&#34;&#34; class=&#34;wp-image-86&#34; width=&#34;532&#34; height=&#34;352&#34;/&gt;&lt;figcaption&gt;hedgehog pause&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
-&lt;!-- /wp:image --&gt;
-&lt;h2 id=&#34;more-about-me&#34;&gt;More about me&lt;/h2&gt;
-&lt;p&gt;Although I&amp;rsquo;m just a student I already had professional experience in the field. I was lucky to find a job that really complimented what I want to do. I was building things from scratch and therefore had experience with many languages and frameworks.&lt;/p&gt;
-&lt;p&gt;I worked with javascript, java, python, elixir, kotlin and used React, Spring, Django, Phoenix, NodeJS, PostgreSQL, MySQL, MongoDB, GraphQL to name a few.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m proud of it, to experience such a range of great tools. I quickly began to see how little matters the language, the framework. I love problem solving. That&amp;rsquo;s me, I want to solve problems and do it using different tools and approaches.&lt;/p&gt;
-&lt;p&gt;Doing this, I&amp;rsquo;ve encountered moments where I was just lost, when I was not finding the right documentation, or the documentation was hard for me to understand so I had to go through trial and errors and come up with a work-a-round, or find the solution which wasn&amp;rsquo;t documented anywhere but it existed right there,  so I was basically finding it the hard way.&lt;/p&gt;
-&lt;p&gt;And one thing that I also love besides problem solving is to share what I know with others and always help when asked for advice.&lt;/p&gt;
-&lt;h2 id=&#34;epilogue&#34;&gt;Epilogue&lt;/h2&gt;
-&lt;p&gt;I will keep this blog for you. You, who may need a solution, a case documentation to a particular problem, or the ones of you who is just into reading articles and dev rants.&lt;/p&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;--my-why&#34;&gt;- My Why&lt;/h2&gt;
+&lt;p&gt;A lot of my inspiration to write will be drawn from the frustrations that I have maybe with a programming language, or maybe with a framework or frustrations that I generally have as a developer or as a citizen of this planet. I want to share them, maybe it will help someone just like countless others helped me throughout my life.&lt;/p&gt;
+&lt;h2 id=&#34;--about-the-blog&#34;&gt;- About the blog&lt;/h2&gt;
+&lt;p&gt;I will try my best to write as consistenly as I can, being a student, a software developer and a friend to my loved ones.&lt;/p&gt;
+&lt;p&gt;The blog&amp;rsquo;s main focus will be developer oriented. I will write about languages, projects that I make, I want to focus on System Design, System Architecture, little useful hacks for developers or something interesting that I learned and feeling like sharing it and talking about it. Here&amp;rsquo;s some programming languages that I like or want to use more of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kotlin&lt;/li&gt;
+&lt;li&gt;Elixir&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;li&gt;C++&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I really-really want to make using the above:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a beautiful distributed web app&lt;/li&gt;
+&lt;li&gt;a game engine&lt;/li&gt;
+&lt;li&gt;a game&lt;/li&gt;
+&lt;li&gt;more distributed web apps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;hellip;and much more!&lt;/p&gt;
+&lt;p&gt;Terraform, Kubernetes, Docker, Kafka, SQL, NoSQL you name it. I will be using &lt;a href=&#34;https://domeeno.github.io/tags/&#34; target=&#34;_blank&#34;&gt;tags&lt;/a&gt; so you can easily find my posts by topic.&lt;/p&gt;
+&lt;h2 id=&#34;--thank-you-for-reading&#34;&gt;- Thank you for reading&lt;/h2&gt;
+&lt;p&gt;If this is the kind of things you&amp;rsquo;re interested in, check out my &lt;a href=&#34;https://twitter.com/dominic_whtver&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt; (which you can also find on the top of this page) where I will anounce when I post something.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;Cheers,&lt;br&gt;
+Yours forever, Software Developer,&lt;br&gt;
+Flocea Dominic.&lt;/p&gt;
 </description>
     </item>
     
