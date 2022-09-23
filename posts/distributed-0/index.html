@@ -263,7 +263,6 @@ if (!doNotTrack) {
 <li>Load Balancing - distribute requests evenly to the services, based on load.</li>
 <li>Circuit breaker - it will trip and return a failure response and log it internally</li>
 <li>Outbound REST API calls</li>
-<li>Remove a service if a maximum of failed calls is reached</li>
 </ul>
 <h3 id="--sql-and-nosql-back-end">- SQL and NoSQL (Back-end)</h3>
 <p><strong>Postgres (SQL)</strong> will be used to store users table which shouldn&rsquo;t be subject to future change. Once well defined it shouldn&rsquo;t be a problem to be left as is, and future modification will be improbable and we can rely on SQL&rsquo;s performance to retrieve and store data. 

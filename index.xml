@@ -88,7 +88,6 @@
 &lt;li&gt;Load Balancing - distribute requests evenly to the services, based on load.&lt;/li&gt;
 &lt;li&gt;Circuit breaker - it will trip and return a failure response and log it internally&lt;/li&gt;
 &lt;li&gt;Outbound REST API calls&lt;/li&gt;
-&lt;li&gt;Remove a service if a maximum of failed calls is reached&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;--sql-and-nosql-back-end&#34;&gt;- SQL and NoSQL (Back-end)&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Postgres (SQL)&lt;/strong&gt; will be used to store users table which shouldn&amp;rsquo;t be subject to future change. Once well defined it shouldn&amp;rsquo;t be a problem to be left as is, and future modification will be improbable and we can rely on SQL&amp;rsquo;s performance to retrieve and store data. 
