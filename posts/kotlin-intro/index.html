@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Practical Kotlin Intro: Pragmatism lvl. 80 - Dominic Flocea</title>
+
+<meta name="description" content="Best Features: - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
+I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&rsquo;t tried it to do so after reading this article.">
+
+<link rel="icon" type="image/x-icon" href="https://domeeno.github.io/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://domeeno.github.io/favicon.png">
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://domeeno.github.io/css/style.min.5dbcfe20b7a5085f11e6fb4d507471e8241c34a3b4ec3a1d59e5e382c6dd6630.css" integrity="sha256-Xbz&#43;ILelCF8R5vtNUHRx6CQcNKO07DodWeXjgsbdZjA=">
+    
+
+
+
+
+
+
+<meta property="og:title" content="Practical Kotlin Intro: Pragmatism lvl. 80" />
+<meta property="og:description" content="Best Features: - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
+I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&rsquo;t tried it to do so after reading this article." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://domeeno.github.io/posts/kotlin-intro/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-13T13:15:42+03:00" />
+<meta property="article:modified_time" content="2023-05-13T13:15:42+03:00" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Practical Kotlin Intro: Pragmatism lvl. 80"/>
+<meta name="twitter:description" content="Best Features: - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
+I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&rsquo;t tried it to do so after reading this article."/>
+
+
+
+    
+        <link rel="webmention" href="https://webmention.io/hugo-theme-anubis/webmention" />
+        
+            <link rel="pingback" href="https://webmention.io/hugo-theme-anubis/xmlrpc" />
+        
+    
+    
+        <link rel="webmention" href="https://yourdomain.com/webemntions/receive" />
+    
+
+
+
+
+
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQJJ1EDL8C"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-YQJJ1EDL8C', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <div class="header-top">
+    <h1 class="site-title">
+        <a href="/">Dominic Flocea</a>
+    </h1>
+    <ul class="social-icons">
+
+
+    
+        
+        
+        <li>
+            <a href="https://github.com/domeeno" title="Github" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://www.linkedin.com/in/dominic-flocea-227ab3206" title="Linkedin" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+    
+        
+        
+        <li>
+            <a href="https://twitter.com/dominic_whtver" title="Twitter" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+</ul>
+
+</div>
+
+    <nav>
+        
+        
+        <a class="" href="https://domeeno.github.io/" title="">Home</a>
+        
+        <a class="" href="https://domeeno.github.io/posts/" title="">Blog</a>
+        
+        <a class="" href="https://domeeno.github.io/about/" title="">About</a>
+        
+        <a class="" href="https://domeeno.github.io/tags/" title="">Tags</a>
+        
+    </nav>
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+
+    <article class="post h-entry">
+        <header class="post-header">
+            <h1 class="p-name post-title">Practical Kotlin Intro: Pragmatism lvl. 80</h1>
+
+            
+        </header>
+        <div class="content e-content">
+            <ul>
+<li><a href="#best-features">Best Features:</a>
+<ul>
+<li><a href="#--concise-write-less-do-more">- Concise: Write less, do more.</a></li>
+<li><a href="#--versatile-swiss-army-knife-of-languages">- Versatile: Swiss-Army Knife of Languages</a></li>
+<li><a href="#--performance-coroutines-and-reactive-programming">- Performance: Coroutines and Reactive Programming</a></li>
+<li><a href="#--conclusion-final-thoughts-and-thanks">- Conclusion, final thoughts and thanks</a></li>
+<li><a href="#buy-me-a-coffee">Buy me a coffee</a></li>
+</ul>
+</li>
+</ul>
+<p>Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.</p>
+<p>I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&rsquo;t tried it to do so after reading this article.</p>
+<p>It is an incredibly versatile language that could really take the title of a Full-Stack Language. Engineers at JetBrains have worked hard to create Integrated Development Environments (IDEs) for many different languages, and Kotlin is the result of years of experience.</p>
+<p>It takes the best features of different languages, and I would like to highlight these features that I love and that hopefully will make you go &ldquo;hmm, that&rsquo;s pretty cool.&rdquo;</p>
+<p>Here it goes, an introduction to one of my favorite languages so far - Kotlin.</p>
+<h2 id="best-features">Best Features:</h2>
+<h3 id="--concise-write-less-do-more">- Concise: Write less, do more.</h3>
+<p>Kotlin is the perfect example of &ldquo;less is more&rdquo;. If you write Kotlin, you write much less boilerplate code.</p>
+<ul>
+<li><strong>Extension functions</strong> - Similar to <strong>C#</strong>, it allows you to extend classes with new functionality without having to inherit from the class or use design patterns such as Decorator, resulting in much less code to maintain later on. Kotlin&rsquo;s extension functions are even more powerful and concise than C#&rsquo;s because they can be used to extend classes with new functionality even if you don&rsquo;t have access to the source code of the class, making your code that much more flexible and adaptive.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// example of extension functions in C#</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> ExtensionMethods
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringExtensions</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsPalindrome(<span style="color:#66d9ef">this</span> <span style="color:#66d9ef">string</span> str)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> charArray = str.ToCharArray();
+</span></span><span style="display:flex;"><span>            Array.Reverse(charArray);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> reversedStr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">string</span>(charArray);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> str.Equals(reversedStr, StringComparison.OrdinalIgnoreCase);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">string</span> word = <span style="color:#e6db74">&#34;radar&#34;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">bool</span> isPalindrome = word.IsPalindrome();
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Is \&#34;</span>{word}<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">&#34; a palindrome? {isPalindrome}&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">// Kotlin extension function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">String</span>.isPalindrome(): Boolean {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> reversedStr = <span style="color:#66d9ef">this</span>.reversed()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.equals(reversedStr, ignoreCase = <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> word = <span style="color:#e6db74">&#34;radar&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> isPalindrome = word.isPalindrome()
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;Is </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">$word</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74"> a palindrome? </span><span style="color:#e6db74">$isPalindrome</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For the curious ones, it can be used as an Adapter pattern. Here, we receive an external API user and can easily convert it to our internal API user with absolute grace:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// external Api data class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>(<span style="color:#66d9ef">val</span> firstName: String, <span style="color:#66d9ef">val</span> lastName: String, <span style="color:#66d9ef">val</span> age: Int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// internal Api data class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(<span style="color:#66d9ef">val</span> personName: String, <span style="color:#66d9ef">val</span> personAge: Int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Adapter example
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">User</span>.toPerson(): Person {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Person(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$firstName</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$lastName</span><span style="color:#e6db74">&#34;</span>, age)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">getPersonFromApi</span>(): Person {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> externalApi.getUser().toPerson() <span style="color:#75715e">// no need to create a new Person object explicitly and assign the values
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><br/>
+<ul>
+<li><strong>Argument-Matching Syntax</strong> - One of my favorite features in <strong>Elixir</strong>, also found in <strong>Erlang</strong> and <strong>Scala</strong>, is the argument-matching syntax. It allows you, the pragmatic developer you are, to write much more readable code. Let&rsquo;s take a look at how it&rsquo;s done in Java, then in Kotlin:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> level<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Developer</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> level<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">level</span> <span style="color:#f92672">=</span> level<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getLevel</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> level<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Developer developer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Developer<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;John&#34;</span><span style="color:#f92672">,</span> 80<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// No Destructuring Declaration in Java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String name <span style="color:#f92672">=</span> developer<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> level <span style="color:#f92672">=</span> developer<span style="color:#f92672">.</span><span style="color:#a6e22e">getLevel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Name: &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, Level: &#34;</span> <span style="color:#f92672">+</span> level<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span>(<span style="color:#66d9ef">val</span> name: String, <span style="color:#66d9ef">val</span> level: Int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> <span style="color:#960050;background-color:#1e0010">(</span>name, level) = Developer(<span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#ae81ff">80</span>) <span style="color:#75715e">// Destructuring declaration
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(<span style="color:#e6db74">&#34;Name: </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">, Level: </span><span style="color:#e6db74">$level</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><br/>
+<ul>
+<li><strong>Data Classes</strong> - Like <strong>C#</strong>&rsquo;s <strong>Record Types</strong> and <strong>F#</strong>&rsquo;s <strong>Record Types</strong>, as seen in the example above, allows you to create classes that are used to hold data/state and not behavior. It is a very useful feature that allows you to write less code and extremely useful with APIs when using Data Transfer Objects.</li>
+</ul>
+<br/>
+<ul>
+<li><strong>Named arguments</strong> - Similar to Groovy, Python, Ruby, Scala, it helps you, the developer to improve your readability and your standing amongst the colleagues.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">greet</span>(name: String, message: String) {
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$message</span><span style="color:#e6db74">, </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    greet(name = <span style="color:#e6db74">&#34;John&#34;</span>, message = <span style="color:#e6db74">&#34;Hello&#34;</span>) <span style="color:#75715e">// Named arguments
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    greet(message = <span style="color:#e6db74">&#34;Hi&#34;</span>, name = <span style="color:#e6db74">&#34;Jane&#34;</span>) <span style="color:#75715e">// Or even with different order
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>It even supports default values for function arguments:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">greet</span>(name: String, message: String = <span style="color:#e6db74">&#34;Hello&#34;</span>) {
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$message</span><span style="color:#e6db74">, </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><strong>DSL</strong> - The cherry on top and evidence of the elegant, graceful, and concise nature of Kotlin is the ability to create internal DSLs (Domain Specific Language). While it&rsquo;s an advanced topic, Kotlin makes it easy to work with. It&rsquo;s an extremely powerful tool, and I&rsquo;ll provide a simple example of how it can be used to create a concise syntax for creating objects:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span>(<span style="color:#66d9ef">val</span> name: String, <span style="color:#66d9ef">val</span> level: Int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeveloperBuilder</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> name: String = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> level: Int = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">build</span>(): Developer {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Developer(name, level)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">developer</span>(block: DeveloperBuilder.() <span style="color:#f92672">-&gt;</span> Unit): Developer {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> builder = DeveloperBuilder()
+</span></span><span style="display:flex;"><span>    builder.block()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> builder.build()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// declare a person using the DSL syntax
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> developer = developer {
+</span></span><span style="display:flex;"><span>        name = <span style="color:#e6db74">&#34;John&#34;</span>
+</span></span><span style="display:flex;"><span>        level = <span style="color:#ae81ff">81</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println(developer)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Takeaways:</strong>
+Kotlin stands by the principle of &ldquo;less is more&rdquo; and absolutely delivers on it. As a developer, you will love the experience of writing less code while achieving more. With Kotlin, you have fewer lines of code to maintain, refactor, fix, debug, or read. Surprisingly, this reduction in code doesn&rsquo;t compromise readability; in fact, it enhances it. Now, let&rsquo;s explore how Kotlin empowers you to be versatile in your development process.</p>
+<h3 id="--versatile-swiss-army-knife-of-languages">- Versatile: Swiss-Army Knife of Languages</h3>
+<ul>
+<li>
+<p><strong>Multiplatform</strong> - Kotlin is multiplatform language, meaning you can use it for many different platforms wihtout having to learn a new language. Android fully embraced Kotlin as one of their official languages. It gains popularity as a language for backend server development. It can be transpiled to JavaScript code or native binaries to run on iOS, Windows, Linux, Mac, even to WebAssembly to run in browsers.</p>
+</li>
+<li>
+<p><strong>Self-Expression</strong> - Kotlin is a <strong>multi-paradigm programming language</strong>. Choosing it does not marry you to one specific way to do things. Which can be both good and bad. But Kotlin knows you are a pragmatic developer and it gives you the freedom of choice on how to do things your way. This is great for Functional Programming (FP), Kotlin has a lot of features that make it a great choice for FP.</p>
+</li>
+<li>
+<p><strong>Interoperability</strong> - Kotlin is a language which runs on the Java Virtual Machine (JVM) just like Java (of course), Scala and Groovy. It can be used alognside Java. This is great for a number of reasons. It means you can still use your Java libraries, frameworks, tools, etc. And if you plan on fully migrating to Kotlin, it can be done gradually, in sprints, without having to rewrite everything at once.</p>
+</li>
+<li>
+<p><strong>Tooling</strong> - Kotlin has great tooling support. It has a great IDE support being from the guys that build IDEs for a living. If you work with Java and have <strong>Intellij</strong> already installed, well great news, you can start writing Kotlin right now.</p>
+</li>
+<li>
+<p><strong>Community</strong> - Kotlin has a great community, it is a language that is growing in popularity. Spring Framework, one of the most popular Java frameworks, and used by many-many enterprise projects has officially embraced Kotlin as one of their official languages.</p>
+</li>
+</ul>
+<p><strong>Takeaways:</strong></p>
+<p>Kotlin is here to stay, it is used across many different platforms, offers a lot of freedom for self-expression, it is highly interoperable with Java (one of the most used languages in enterprise), has a great tooling and a big welcoming community.</p>
+<h3 id="--performance-coroutines-and-reactive-programming">- Performance: Coroutines and Reactive Programming</h3>
+<ul>
+<li>
+<p><strong>Async and Coroutines</strong> - 
+We&rsquo;re reaching a point where hardware performance is slowly starting to reach its limits. The hardware isn&rsquo;t the bottleneck anymore, and software is where we can improve by harnessing the power of multi-threaded and asynchronous programming.
+Kotlin has innovated in the area of asynchronous programming with the introduction of <strong>Coroutines</strong>. It has made writing asynchronous code efficient and, most importantly, easier to write and read. This is great for the uninitiated in the black magic world of multi-threaded programming, providing a gentle introduction and more room to avoid errors.</p>
+</li>
+<li>
+<p><strong>Reactive Programming</strong> - Kotlin has support for reactive programming which helps you write asynchronous, event-driven code in a declarative way. Spring WebFlux is a great example of a reactive framework that can be used with Kotlin to write reactive back-end code. I am working currently on my own project which I want to make fully reactive from front-end down to the database connection, and luckily I can use Kotlin for that together with Spring WebFlux, which helps me show the user results much faster, takes care of heavy system loads with integrated backpressure mechanisms and overall beautiful syntax in my opinion.</p>
+</li>
+</ul>
+<p><strong>Takeaways:</strong></p>
+<p>Kotlin has innovated asynchronous programming with the introduction of Coroutines, allowing even the uninitiated to write asynchronous code. It also has support for reactive programming which is great for writing event-driven code which I think will be required more and more.</p>
+<h3 id="--conclusion-final-thoughts-and-thanks">- Conclusion, final thoughts and thanks</h3>
+<p>I hope you enjoyed the article, would love to hear your feedback, if you liked it please share it with someone who you think might find this interesting. I love how programming languages tackle different challenges and from my experience by far Kotlin is one of the most versatile ones while also being a pleasure to write in. Thank you so much for reading, I hope you have a great day, would love to hear your feedback, you can find me on socials at the top of this page.</p>
+<br/>
+<br/>
+<p>Cheers,<br>
+Yours forever, good guy Developer,<br>
+Flocea Dominic.</p>
+<h3 id="buy-me-a-coffee">Buy me a coffee</h3>
+<p><a href="https://www.buymeacoffee.com/domeenodev">P. S. If you liked the post consider buying me a coffee.</a></p>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date dt-published">2023-05-13</div>
+    
+    
+    <a class="post-hidden-url u-url" href="https://domeeno.github.io/posts/kotlin-intro/">https://domeeno.github.io/posts/kotlin-intro/</a>
+    <a href="https://domeeno.github.io/" class="p-name p-author post-hidden-author h-card" rel="me">Dominic Flocea</a>
+
+
+    <div class="post-taxonomies">
+        
+            
+                <ul class="post-tags">
+                    
+                        <li><a href="https://domeeno.github.io/tags/kotlin">#kotlin</a></li>
+                    
+                        <li><a href="https://domeeno.github.io/tags/programming-languages">#programming-languages</a></li>
+                    
+                </ul>
+        
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item disabled">
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/posts/distributed-0/">Distributed Systems #0 - General System Architecture</a>
+            
+        </div>
+    </div>
+
+
+
+
+    
+
+    
+
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        <div class="copyright">
+            <p>© Dominic Flocea, 2023<br>
+            Powered by <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.<br>
+            
+            </p>  
+        </div> 
+
+        
+
+    
+
+
+
+    <button class="theme-switcher">
+        Dark theme
+    </button>
+
+    <script>
+    const STORAGE_KEY = 'user-color-scheme'
+    const defaultTheme = "light"
+
+    let currentTheme
+    let switchButton
+    let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const autoChangeScheme = e => {
+        currentTheme = e.matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', currentTheme)
+        changeButtonText()
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        switchButton = document.querySelector('.theme-switcher')
+        currentTheme = detectCurrentScheme()
+        if (currentTheme == 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+        }
+        if (currentTheme == 'auto') {
+            autoChangeScheme(autoDefinedScheme);
+            autoDefinedScheme.addListener(autoChangeScheme);
+        }
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    })
+
+    function detectCurrentScheme() {
+        if (localStorage.getItem(STORAGE_KEY)) {
+            return localStorage.getItem(STORAGE_KEY)
+        } 
+        if (defaultTheme) {
+            return defaultTheme
+        } 
+        if (!window.matchMedia) {
+            return 'light'
+        } 
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+        }
+        return 'light'
+    }
+
+    function changeButtonText()
+    {   
+        switchButton.textContent = currentTheme == 'dark' ?  "Light theme" : "Dark theme"
+    }
+
+    function switchTheme(e) {
+        if (currentTheme == 'dark') {
+            localStorage.setItem(STORAGE_KEY, 'light')
+            document.documentElement.setAttribute('data-theme', 'light')
+            currentTheme = 'light'
+        } else {
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            document.documentElement.setAttribute('data-theme', 'dark')
+            currentTheme = 'dark'
+        }
+        changeButtonText()
+    }
+    </script>
+   
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=https://domeeno.github.io/ class="p-name u-url url fn" rel="me">Dominic Flocea</a> 
+
+     
+        /
+        <a class="p-email u-email email" rel="me" href="mailto:dominicflocea.dev@gmail.com">dominicflocea.dev@gmail.com</a>
+    
+
+    
+</p> 
+</footer>
+
+        
+    </div>
+</body>
+</html>

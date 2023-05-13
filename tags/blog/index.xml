@@ -17,7 +17,13 @@
       <pubDate>Wed, 20 Oct 2021 00:35:42 +0300</pubDate>
       
       <guid>https://domeeno.github.io/posts/hi/</guid>
-      <description>&lt;br/&gt;
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#--my-why&#34;&gt;- My Why&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#--about-the-blog&#34;&gt;- About the blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#--final-thanks&#34;&gt;- Final Thanks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#buy-me-a-coffee&#34;&gt;Buy me a coffee&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
 &lt;p&gt;Hi there, How are you doing? Oh, fantastic? you should keep it up, you&amp;rsquo;re doing great!&lt;/p&gt;
 &lt;p&gt;Glad you&amp;rsquo;re here, I can tell you something about myself and why I began blogging. I&amp;rsquo;m a software developer, probably just like you, or maybe not, but for one I&amp;rsquo;m certain - We learn our whole life and just like you I&amp;rsquo;m learning new things everywhere I turn, intentionally or unintentionally.&lt;/p&gt;
 &lt;p&gt;You can take useful information from right here. I like to share the challenges I faced and how I overcome them, maybe it will inspire you and help you in your own career, and path to becoming who you want to be. Fortunately the answers aren&amp;rsquo;t always obvious and clear, but that&amp;rsquo;s the beauty of life, you have to turn for some help discovering new perspectives and ways to solve and overcome. I sure did, more than I care to admit, and I want to do my part and give back to the community I&amp;rsquo;ve been a part of for the last few years.&lt;/p&gt;
@@ -46,13 +52,15 @@
 &lt;/ul&gt;
 &lt;p&gt;&amp;hellip;and much more!&lt;/p&gt;
 &lt;p&gt;Terraform, Kubernetes, Docker, Kafka, SQL, NoSQL you name it. I will be using &lt;a href=&#34;https://domeeno.github.io/tags/&#34; target=&#34;_blank&#34;&gt;tags&lt;/a&gt; so you can easily find my posts by topic.&lt;/p&gt;
-&lt;h2 id=&#34;--thank-you-for-reading&#34;&gt;- Thank you for reading&lt;/h2&gt;
+&lt;h2 id=&#34;--final-thanks&#34;&gt;- Final Thanks&lt;/h2&gt;
 &lt;p&gt;If this is the kind of things you&amp;rsquo;re interested in, check out my &lt;a href=&#34;https://twitter.com/dominic_whtver&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt; (which you can also find on the top of this page) where I will anounce when I post something.&lt;/p&gt;
 &lt;br/&gt;
+&lt;br/&gt;
 &lt;p&gt;Cheers,&lt;br&gt;
-Yours forever, Software Developer,&lt;br&gt;
+Yours forever, good guy Developer,&lt;br&gt;
 Flocea Dominic.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;buy-me-a-coffee&#34;&gt;Buy me a coffee&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee.&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
