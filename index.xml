@@ -6,10 +6,90 @@
     <description>Dominic Flocea</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 May 2023 13:15:42 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 19 May 2023 16:53:30 +0300</lastBuildDate>
     
     <atom:link href="https://domeeno.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>🌿 Kotlin: No IF statement?!</title>
+      <link>https://domeeno.github.io/posts/kotlin-expressions/</link>
+      <pubDate>Fri, 19 May 2023 16:53:30 +0300</pubDate>
+      
+      <guid>https://domeeno.github.io/posts/kotlin-expressions/</guid>
+      <description>&lt;/br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#-statements&#34;&gt;📜 Statements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#-expressions&#34;&gt;🧮 Expressions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#-the-importance-of-the-expression-vs-statement-distinction&#34;&gt;🧘 The importance of the Expression vs Statement distinction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#-conclusion&#34;&gt;📝 Conclusion&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#-buy-me-a-coffee&#34;&gt;☕ Buy me a coffee&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+&lt;p&gt;This post highlights the great practice of programming languages that are &lt;strong&gt;expressive&lt;/strong&gt; and how they avoid the design flaw of &lt;strong&gt;statements&lt;/strong&gt; used in languages like &lt;strong&gt;Java&lt;/strong&gt;, &lt;strong&gt;C#&lt;/strong&gt; and &lt;strong&gt;GO&lt;/strong&gt;. It gives a deeper meaning to the everyday &lt;code&gt;if&lt;/code&gt; code you are so used to writing by now.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;In Kotlin there are no &lt;code&gt;if&lt;/code&gt; statements. And there&amp;rsquo;s a good reason why. &lt;strong&gt;Kotlin&lt;/strong&gt; is a functional expressive language, and that&amp;rsquo;s why &lt;code&gt;if&lt;/code&gt; is treated as an &lt;em&gt;&lt;strong&gt;expression&lt;/strong&gt;&lt;/em&gt; instead of a statement. Inspired by languages like &lt;strong&gt;Haskell&lt;/strong&gt;, &lt;strong&gt;Ruby&lt;/strong&gt; and the beloved &lt;strong&gt;Rust&lt;/strong&gt; they all have in common that they treat their &lt;code&gt;if&lt;/code&gt;s as expressions.&lt;/p&gt;
+&lt;p&gt;So what is the difference and how is this design choice better than the traditional broadly used &lt;code&gt;if&lt;/code&gt; statement?&lt;/p&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;-statements&#34;&gt;📜 Statements&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s take a look at &lt;strong&gt;Java&lt;/strong&gt;&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; statement:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 75&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; discount &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;15&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; discountedPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 100&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    discountedPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; discount&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    discountedPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; originalPrice&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;discountedPrice&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
+&lt;p&gt;The &lt;code&gt;if&lt;/code&gt; code above does a simple check for discount eligibility. If the original price is greater than 100, then a discount is applied. This is an example of how if statements are used for flow control.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;In other words, the if statement has side effects (change of discountedPrice based on the condition). They change state which can lead to unexpected behavior and bugs.&lt;/p&gt;
+&lt;p&gt;How is this different from an expression? Well to give you the answer let&amp;rsquo;s take a look at the expressions in Kotlin.&lt;/p&gt;
+&lt;h2 id=&#34;-expressions&#34;&gt;🧮 Expressions&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s take a look at Kotlin&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; expression:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; originalPrice = &lt;span style=&#34;color:#ae81ff&#34;&gt;75.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; discount = &lt;span style=&#34;color:#ae81ff&#34;&gt;0.15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; discountedPrice = &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (originalPrice &amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100.0&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    originalPrice - (originalPrice * discount)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    originalPrice
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;println(discountedPrice)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Again you&amp;rsquo;re dealing with the familiar &lt;code&gt;if&lt;/code&gt; condition but this time it is a bit different - this particular &lt;code&gt;if&lt;/code&gt; is an &lt;strong&gt;expression&lt;/strong&gt;. Expressions, unlike statements, always return a value. They allow the developer to completely avoid side effects, giving results that are more predictable and less error prone.&lt;/p&gt;
+&lt;p&gt;Take a look at the &lt;code&gt;discountedPrice&lt;/code&gt; - it is declared as a &lt;code&gt;val&lt;/code&gt;, and it is how Kotlin declares immutable (a constant if you may) variables. In Kotlin, when declaring something, you&amp;rsquo;re always put before the choice of using &lt;code&gt;val&lt;/code&gt; or &lt;code&gt;var&lt;/code&gt;. It is the first keyword used in variable declarations. It forces the developer to be mindful about the mutability of the variable.&lt;/p&gt;
+&lt;h2 id=&#34;-the-importance-of-the-expression-vs-statement-distinction&#34;&gt;🧘 The importance of the Expression vs Statement distinction&lt;/h2&gt;
+&lt;p&gt;The Java, C# and languages alike using statements unfortunately expose the developer at the risk of missing and introducing unexpected side effects in his code.&lt;/p&gt;
+&lt;p&gt;How does this improve your code?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Expressions Improve Redability&lt;/strong&gt; - It makes it easier to read and understand the code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Expressions Give Predictable Outcomes&lt;/strong&gt; - The last thing you want to do when writing code is to guess the results. By returning a result, you can completely avoid modifying states or values.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Immutability and Multi-threading&lt;/strong&gt; - &lt;code&gt;if&lt;/code&gt; expressions promote immutability by default, and immutability is a great match when writing multi-threaded code. Using &lt;code&gt;if&lt;/code&gt; statements in mutli-threading environment, may result in unexpected behavior and unwanted race conditions which is hard to detect and debug - the perfect formula for disaster. Immutable variables are thread safe as their value is unlikely to ever change.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+&lt;h2 id=&#34;-conclusion&#34;&gt;📝 Conclusion&lt;/h2&gt;
+&lt;p&gt;Some other operators that are expressions in Kotlin are &lt;code&gt;when&lt;/code&gt;, &lt;code&gt;try/catch&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt; and &lt;code&gt;while&lt;/code&gt; loops - meaning they all return a value by the end of their execution. &lt;a href=&#34;https://kotlinlang.org/docs/control-flow.html&#34;&gt;Read more&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This was a short mini-post which highlights the difference between &lt;strong&gt;expressions&lt;/strong&gt; and &lt;strong&gt;statements&lt;/strong&gt;. It is a great insight to have and a nice distinction to know when writing code in different languages. Look out for state changes and always use constants as the first choice when declaring variables.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;Read my other article on &lt;a href=&#34;http://localhost:1313/posts/kotlin-intro/&#34;&gt;Kotlin&amp;rsquo;s pragmatic approach&lt;/a&gt; to learn more about the beautiful language that is Kotlin.&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;Cheers,&lt;br&gt;
+Yours forever, good guy Developer,&lt;br&gt;
+Flocea Dominic.&lt;/p&gt;
+&lt;h3 id=&#34;-buy-me-a-coffee&#34;&gt;☕ Buy me a coffee&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Practical Kotlin Intro: Pragmatism lvl. 80</title>
