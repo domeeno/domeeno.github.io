@@ -210,7 +210,7 @@ if (!doNotTrack) {
 <p>So what is the difference and how is this design choice better than the traditional broadly used <code>if</code> statement?</p>
 </br>
 <h2 id="-statements">📜 Statements</h2>
-<p>Let&rsquo;s take a look at <strong>Java</strong>&rsquo;s <code>if</code> statement:</p>
+<p>Let&rsquo;s see <strong>Java</strong>&rsquo;s <code>if</code> statement:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span> originalPrice <span style="color:#f92672">=</span> 75<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span> discount <span style="color:#f92672">=</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">15</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>
@@ -227,9 +227,9 @@ if (!doNotTrack) {
 <p>The <code>if</code> code above does a simple check for discount eligibility. If the original price is greater than 100, then a discount is applied. This is an example of how if statements are used for flow control.</p>
 </br>
 <p>In other words, the if statement has side effects (change of discountedPrice based on the condition). They change state which can lead to unexpected behavior and bugs.</p>
-<p>How is this different from an expression? Well to give you the answer let&rsquo;s take a look at the expressions in Kotlin.</p>
+<p>How is this different from an expression? Well to give you the answer we&rsquo;ll move on to Kotlin&rsquo;s expressions.</p>
 <h2 id="-expressions">🧮 Expressions</h2>
-<p>Let&rsquo;s take a look at Kotlin&rsquo;s <code>if</code> expression:</p>
+<p>Here&rsquo;s a peak at Kotlin&rsquo;s <code>if</code> expression:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">val</span> originalPrice = <span style="color:#ae81ff">75.0</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">val</span> discount = <span style="color:#ae81ff">0.15</span>
 </span></span><span style="display:flex;"><span>

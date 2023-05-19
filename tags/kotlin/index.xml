@@ -35,7 +35,7 @@
 &lt;p&gt;So what is the difference and how is this design choice better than the traditional broadly used &lt;code&gt;if&lt;/code&gt; statement?&lt;/p&gt;
 &lt;/br&gt;
 &lt;h2 id=&#34;-statements&#34;&gt;📜 Statements&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s take a look at &lt;strong&gt;Java&lt;/strong&gt;&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; statement:&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see &lt;strong&gt;Java&lt;/strong&gt;&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; statement:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 75&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; discount &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;15&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -52,9 +52,9 @@
 &lt;p&gt;The &lt;code&gt;if&lt;/code&gt; code above does a simple check for discount eligibility. If the original price is greater than 100, then a discount is applied. This is an example of how if statements are used for flow control.&lt;/p&gt;
 &lt;/br&gt;
 &lt;p&gt;In other words, the if statement has side effects (change of discountedPrice based on the condition). They change state which can lead to unexpected behavior and bugs.&lt;/p&gt;
-&lt;p&gt;How is this different from an expression? Well to give you the answer let&amp;rsquo;s take a look at the expressions in Kotlin.&lt;/p&gt;
+&lt;p&gt;How is this different from an expression? Well to give you the answer we&amp;rsquo;ll move on to Kotlin&amp;rsquo;s expressions.&lt;/p&gt;
 &lt;h2 id=&#34;-expressions&#34;&gt;🧮 Expressions&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s take a look at Kotlin&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; expression:&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a peak at Kotlin&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; expression:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; originalPrice = &lt;span style=&#34;color:#ae81ff&#34;&gt;75.0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; discount = &lt;span style=&#34;color:#ae81ff&#34;&gt;0.15&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
