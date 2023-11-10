@@ -12,7 +12,7 @@
 
 <title>Practical Kotlin Intro: Pragmatism lvl. 80 - Dominic Flocea</title>
 
-<meta name="description" content="Best Features: - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
+<meta name="description" content="Best Features:  - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee    Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
 I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&rsquo;t tried it to do so after reading this article.">
 
 <link rel="icon" type="image/x-icon" href="https://domeeno.github.io/favicon.ico">
@@ -42,7 +42,7 @@ I am not planning to stop using it in my future projects because I love writing 
 
 
 <meta property="og:title" content="Practical Kotlin Intro: Pragmatism lvl. 80" />
-<meta property="og:description" content="Best Features: - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
+<meta property="og:description" content="Best Features:  - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee    Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
 I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&rsquo;t tried it to do so after reading this article." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://domeeno.github.io/posts/kotlin-intro/" /><meta property="article:section" content="posts" />
@@ -52,7 +52,7 @@ I am not planning to stop using it in my future projects because I love writing 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Practical Kotlin Intro: Pragmatism lvl. 80"/>
-<meta name="twitter:description" content="Best Features: - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
+<meta name="twitter:description" content="Best Features:  - Concise: Write less, do more. - Versatile: Swiss-Army Knife of Languages - Performance: Coroutines and Reactive Programming - Conclusion, final thoughts and thanks Buy me a coffee    Kotlin has experienced an immense growth in popularity, and it&rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.
 I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&rsquo;t tried it to do so after reading this article."/>
 
 
@@ -214,96 +214,97 @@ if (!doNotTrack) {
 <ul>
 <li><strong>Extension functions</strong> - Similar to <strong>C#</strong>, it allows you to extend classes with new functionality without having to inherit from the class or use design patterns such as Decorator, resulting in much less code to maintain later on. Kotlin&rsquo;s extension functions are even more powerful and concise than C#&rsquo;s because they can be used to extend classes with new functionality even if you don&rsquo;t have access to the source code of the class, making your code that much more flexible and adaptive.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// example of extension functions in C#</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> ExtensionMethods
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringExtensions</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsPalindrome(<span style="color:#66d9ef">this</span> <span style="color:#66d9ef">string</span> str)
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> charArray = str.ToCharArray();
-</span></span><span style="display:flex;"><span>            Array.Reverse(charArray);
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> reversedStr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">string</span>(charArray);
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> str.Equals(reversedStr, StringComparison.OrdinalIgnoreCase);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">string</span> word = <span style="color:#e6db74">&#34;radar&#34;</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">bool</span> isPalindrome = word.IsPalindrome();
-</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Is \&#34;</span>{word}<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">&#34; a palindrome? {isPalindrome}&#34;</span>);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#75715e">// Kotlin extension function
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">String</span>.isPalindrome(): Boolean {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> reversedStr = <span style="color:#66d9ef">this</span>.reversed()
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.equals(reversedStr, ignoreCase = <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> word = <span style="color:#e6db74">&#34;radar&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> isPalindrome = word.isPalindrome()
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;Is </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">$word</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74"> a palindrome? </span><span style="color:#e6db74">$isPalindrome</span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>For the curious ones, it can be used as an Adapter pattern. Here, we receive an external API user and can easily convert it to our internal API user with absolute grace:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// external Api data class
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>(<span style="color:#66d9ef">val</span> firstName: String, <span style="color:#66d9ef">val</span> lastName: String, <span style="color:#66d9ef">val</span> age: Int)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// internal Api data class
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(<span style="color:#66d9ef">val</span> personName: String, <span style="color:#66d9ef">val</span> personAge: Int)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Adapter example
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">User</span>.toPerson(): Person {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Person(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$firstName</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$lastName</span><span style="color:#e6db74">&#34;</span>, age)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// usage
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">getPersonFromApi</span>(): Person {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> externalApi.getUser().toPerson() <span style="color:#75715e">// no need to create a new Person object explicitly and assign the values
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><br/>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">// example of extension functions in C#
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">namespace</span> ExtensionMethods
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringExtensions</span>
+    {
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsPalindrome(<span style="color:#66d9ef">this</span> <span style="color:#66d9ef">string</span> str)
+        {
+            <span style="color:#66d9ef">var</span> charArray = str.ToCharArray();
+            Array.Reverse(charArray);
+            <span style="color:#66d9ef">var</span> reversedStr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">string</span>(charArray);
+            <span style="color:#66d9ef">return</span> str.Equals(reversedStr, StringComparison.OrdinalIgnoreCase);
+        }
+    }
+
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+    {
+        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+        {
+            <span style="color:#66d9ef">string</span> word = <span style="color:#e6db74">&#34;radar&#34;</span>;
+            <span style="color:#66d9ef">bool</span> isPalindrome = word.IsPalindrome();
+            Console.WriteLine(<span style="color:#e6db74">$&#34;Is \&#34;</span>{word}<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">&#34; a palindrome? {isPalindrome}&#34;</span>);
+        }
+    }
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#75715e">// Kotlin extension function
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">String</span>.isPalindrome(): Boolean {
+    <span style="color:#66d9ef">val</span> reversedStr = <span style="color:#66d9ef">this</span>.reversed()
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.equals(reversedStr, ignoreCase = <span style="color:#66d9ef">true</span>)
+}
+
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">val</span> word = <span style="color:#e6db74">&#34;radar&#34;</span>
+    <span style="color:#66d9ef">val</span> isPalindrome = word.isPalindrome()
+    println(<span style="color:#e6db74">&#34;Is </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">$word</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74"> a palindrome? </span><span style="color:#e6db74">$isPalindrome</span><span style="color:#e6db74">&#34;</span>)
+}
+</code></pre></div><p>For the curious ones, it can be used as an Adapter pattern. Here, we receive an external API user and can easily convert it to our internal API user with absolute grace:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin">
+<span style="color:#75715e">// external Api data class
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>(<span style="color:#66d9ef">val</span> firstName: String, <span style="color:#66d9ef">val</span> lastName: String, <span style="color:#66d9ef">val</span> age: Int)
+
+<span style="color:#75715e">// internal Api data class
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(<span style="color:#66d9ef">val</span> personName: String, <span style="color:#66d9ef">val</span> personAge: Int)
+
+<span style="color:#75715e">// Adapter example
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">User</span>.toPerson(): Person {
+    <span style="color:#66d9ef">return</span> Person(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$firstName</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$lastName</span><span style="color:#e6db74">&#34;</span>, age)
+}
+
+<span style="color:#75715e">// usage
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">getPersonFromApi</span>(): Person {
+    <span style="color:#66d9ef">return</span> externalApi.getUser().toPerson() <span style="color:#75715e">// no need to create a new Person object explicitly and assign the values
+</span><span style="color:#75715e"></span>}
+
+</code></pre></div><br/>
 <ul>
 <li><strong>Argument-Matching Syntax</strong> - One of my favorite features in <strong>Elixir</strong>, also found in <strong>Erlang</strong> and <strong>Scala</strong>, is the argument-matching syntax. It allows you, the pragmatic developer you are, to write much more readable code. Let&rsquo;s take a look at how it&rsquo;s done in Java, then in Kotlin:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> level<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Developer</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> level<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">level</span> <span style="color:#f92672">=</span> level<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getLevel</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> level<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        Developer developer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Developer<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;John&#34;</span><span style="color:#f92672">,</span> 80<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// No Destructuring Declaration in Java
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String name <span style="color:#f92672">=</span> developer<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> level <span style="color:#f92672">=</span> developer<span style="color:#f92672">.</span><span style="color:#a6e22e">getLevel</span><span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Name: &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, Level: &#34;</span> <span style="color:#f92672">+</span> level<span style="color:#f92672">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span>(<span style="color:#66d9ef">val</span> name: String, <span style="color:#66d9ef">val</span> level: Int)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> <span style="color:#960050;background-color:#1e0010">(</span>name, level) = Developer(<span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#ae81ff">80</span>) <span style="color:#75715e">// Destructuring declaration
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    println(<span style="color:#e6db74">&#34;Name: </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">, Level: </span><span style="color:#e6db74">$level</span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><br/>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> level<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Developer</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> level<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">level</span> <span style="color:#f92672">=</span> level<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getLevel</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> level<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Developer developer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Developer<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;John&#34;</span><span style="color:#f92672">,</span> 80<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// No Destructuring Declaration in Java
+</span><span style="color:#75715e"></span>        String name <span style="color:#f92672">=</span> developer<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">int</span> level <span style="color:#f92672">=</span> developer<span style="color:#f92672">.</span><span style="color:#a6e22e">getLevel</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Name: &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, Level: &#34;</span> <span style="color:#f92672">+</span> level<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span>(<span style="color:#66d9ef">val</span> name: String, <span style="color:#66d9ef">val</span> level: Int)
+
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">val</span> <span style="color:#960050;background-color:#1e0010">(</span>name, level) = Developer(<span style="color:#e6db74">&#34;John&#34;</span>, <span style="color:#ae81ff">80</span>) <span style="color:#75715e">// Destructuring declaration
+</span><span style="color:#75715e"></span>    println(<span style="color:#e6db74">&#34;Name: </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">, Level: </span><span style="color:#e6db74">$level</span><span style="color:#e6db74">&#34;</span>)
+}
+</code></pre></div><br/>
 <ul>
 <li><strong>Data Classes</strong> - Like <strong>C#</strong>&rsquo;s <strong>Record Types</strong> and <strong>F#</strong>&rsquo;s <strong>Record Types</strong>, as seen in the example above, allows you to create classes that are used to hold data/state and not behavior. It is a very useful feature that allows you to write less code and extremely useful with APIs when using Data Transfer Objects.</li>
 </ul>
@@ -311,48 +312,49 @@ if (!doNotTrack) {
 <ul>
 <li><strong>Named arguments</strong> - Similar to Groovy, Python, Ruby, Scala, it helps you, the developer to improve your readability and your standing amongst the colleagues.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">greet</span>(name: String, message: String) {
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$message</span><span style="color:#e6db74">, </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">!&#34;</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    greet(name = <span style="color:#e6db74">&#34;John&#34;</span>, message = <span style="color:#e6db74">&#34;Hello&#34;</span>) <span style="color:#75715e">// Named arguments
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    greet(message = <span style="color:#e6db74">&#34;Hi&#34;</span>, name = <span style="color:#e6db74">&#34;Jane&#34;</span>) <span style="color:#75715e">// Or even with different order
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><p>It even supports default values for function arguments:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">greet</span>(name: String, message: String = <span style="color:#e6db74">&#34;Hello&#34;</span>) {
-</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$message</span><span style="color:#e6db74">, </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">!&#34;</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">greet</span>(name: String, message: String) {
+    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$message</span><span style="color:#e6db74">, </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">!&#34;</span>)
+}
+
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+    greet(name = <span style="color:#e6db74">&#34;John&#34;</span>, message = <span style="color:#e6db74">&#34;Hello&#34;</span>) <span style="color:#75715e">// Named arguments
+</span><span style="color:#75715e"></span>    greet(message = <span style="color:#e6db74">&#34;Hi&#34;</span>, name = <span style="color:#e6db74">&#34;Jane&#34;</span>) <span style="color:#75715e">// Or even with different order
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>It even supports default values for function arguments:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">greet</span>(name: String, message: String = <span style="color:#e6db74">&#34;Hello&#34;</span>) {
+    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$message</span><span style="color:#e6db74">, </span><span style="color:#e6db74">$name</span><span style="color:#e6db74">!&#34;</span>)
+}
+</code></pre></div><ul>
 <li><strong>DSL</strong> - The cherry on top and evidence of the elegant, graceful, and concise nature of Kotlin is the ability to create internal DSLs (Domain Specific Language). While it&rsquo;s an advanced topic, Kotlin makes it easy to work with. It&rsquo;s an extremely powerful tool, and I&rsquo;ll provide a simple example of how it can be used to create a concise syntax for creating objects:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span>(<span style="color:#66d9ef">val</span> name: String, <span style="color:#66d9ef">val</span> level: Int)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeveloperBuilder</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> name: String = <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> level: Int = <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">build</span>(): Developer {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Developer(name, level)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">developer</span>(block: DeveloperBuilder.() <span style="color:#f92672">-&gt;</span> Unit): Developer {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> builder = DeveloperBuilder()
-</span></span><span style="display:flex;"><span>    builder.block()
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> builder.build()
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// declare a person using the DSL syntax
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> developer = developer {
-</span></span><span style="display:flex;"><span>        name = <span style="color:#e6db74">&#34;John&#34;</span>
-</span></span><span style="display:flex;"><span>        level = <span style="color:#ae81ff">81</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println(developer)
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>Takeaways:</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kotlin" data-lang="kotlin"><span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Developer</span>(<span style="color:#66d9ef">val</span> name: String, <span style="color:#66d9ef">val</span> level: Int)
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeveloperBuilder</span> {
+    <span style="color:#66d9ef">var</span> name: String = <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">var</span> level: Int = <span style="color:#ae81ff">0</span>
+
+    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">build</span>(): Developer {
+        <span style="color:#66d9ef">return</span> Developer(name, level)
+    }
+}
+
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">developer</span>(block: DeveloperBuilder.() <span style="color:#f92672">-&gt;</span> Unit): Developer {
+    <span style="color:#66d9ef">val</span> builder = DeveloperBuilder()
+    builder.block()
+    <span style="color:#66d9ef">return</span> builder.build()
+}
+
+<span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// declare a person using the DSL syntax
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">val</span> developer = developer {
+        name = <span style="color:#e6db74">&#34;John&#34;</span>
+        level = <span style="color:#ae81ff">81</span>
+    }
+
+    println(developer)
+}
+
+</code></pre></div><p><strong>Takeaways:</strong>
 Kotlin stands by the principle of &ldquo;less is more&rdquo; and absolutely delivers on it. As a developer, you will love the experience of writing less code while achieving more. With Kotlin, you have fewer lines of code to maintain, refactor, fix, debug, or read. Surprisingly, this reduction in code doesn&rsquo;t compromise readability; in fact, it enhances it. Now, let&rsquo;s explore how Kotlin empowers you to be versatile in your development process.</p>
 <h3 id="--versatile-swiss-army-knife-of-languages">- Versatile: Swiss-Army Knife of Languages</h3>
 <ul>
@@ -377,7 +379,7 @@ Kotlin stands by the principle of &ldquo;less is more&rdquo; and absolutely deli
 <h3 id="--performance-coroutines-and-reactive-programming">- Performance: Coroutines and Reactive Programming</h3>
 <ul>
 <li>
-<p><strong>Async and Coroutines</strong> - 
+<p><strong>Async and Coroutines</strong> -
 We&rsquo;re reaching a point where hardware performance is slowly starting to reach its limits. The hardware isn&rsquo;t the bottleneck anymore, and software is where we can improve by harnessing the power of multi-threaded and asynchronous programming.
 Kotlin has innovated in the area of asynchronous programming with the introduction of <strong>Coroutines</strong>. It has made writing asynchronous code efficient and, most importantly, easier to write and read. This is great for the uninitiated in the black magic world of multi-threaded programming, providing a gentle introduction and more room to avoid errors.</p>
 </li>
@@ -433,7 +435,7 @@ Flocea Dominic.</p>
     <div class="pagination post-pagination">
         <div class="left pagination-item ">
             
-                <a href="/posts/kotlin-expressions/">🌿 Kotlin: No IF statement?!</a>
+                <a href="/posts/kotlin-expressions/">🌿 Kotlin: No IF-ELSE statement?!</a>
             
         </div>
         <div class="right pagination-item ">
