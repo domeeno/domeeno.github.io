@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Talk on Dominic Flocea</title>
     <link>https://domeeno.github.io/tags/talk/</link>
-    <description>Dominic Flocea (Talk)</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Talk on Dominic Flocea</description>
+    <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Oct 2021 00:35:42 +0300</lastBuildDate>
-    
     <atom:link href="https://domeeno.github.io/tags/talk/index.xml" rel="self" type="application/rss+xml" />
-    
-    
     <item>
       <title>To my readers...</title>
       <link>https://domeeno.github.io/posts/hi/</link>
       <pubDate>Wed, 20 Oct 2021 00:35:42 +0300</pubDate>
-      
       <guid>https://domeeno.github.io/posts/hi/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#--my-why&#34;&gt;- My Why&lt;/a&gt;&lt;/li&gt;
@@ -25,44 +21,7 @@
 &lt;/ul&gt;
 &lt;br/&gt;
 &lt;p&gt;Hi there, How are you doing? Oh, fantastic? you should keep it up, you&amp;rsquo;re doing great!&lt;/p&gt;
-&lt;p&gt;Glad you&amp;rsquo;re here, I can tell you something about myself and why I began blogging. I&amp;rsquo;m a software developer, probably just like you, or maybe not, but for one I&amp;rsquo;m certain - We learn our whole life and just like you I&amp;rsquo;m learning new things everywhere I turn, intentionally or unintentionally.&lt;/p&gt;
-&lt;p&gt;You can take useful information from right here. I like to share the challenges I faced and how I overcome them, maybe it will inspire you and help you in your own career, and path to becoming who you want to be. Fortunately the answers aren&amp;rsquo;t always obvious and clear, but that&amp;rsquo;s the beauty of life, you have to turn for some help discovering new perspectives and ways to solve and overcome. I sure did, more than I care to admit, and I want to do my part and give back to the community I&amp;rsquo;ve been a part of for the last few years.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;Sometimes the best way to solves your own problems, is to help someone else.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ndash; &lt;cite&gt;Uncle Iroh&lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h2 id=&#34;--my-why&#34;&gt;- My Why&lt;/h2&gt;
-&lt;p&gt;A lot of my inspiration to write will be drawn from the frustrations that I have maybe with a programming language, or maybe with a framework or frustrations that I generally have as a developer or as a citizen of this planet. I want to share them, maybe it will help someone just like countless others helped me throughout my life.&lt;/p&gt;
-&lt;h2 id=&#34;--about-the-blog&#34;&gt;- About the blog&lt;/h2&gt;
-&lt;p&gt;I will try my best to write as consistenly as I can, being a student, a software developer and a friend to my loved ones.&lt;/p&gt;
-&lt;p&gt;The blog&amp;rsquo;s main focus will be developer oriented. I will write about languages, projects that I make, I want to focus on System Design, System Architecture, little useful hacks for developers or something interesting that I learned and feeling like sharing it and talking about it. Here&amp;rsquo;s some programming languages that I like or want to use more of:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Kotlin&lt;/li&gt;
-&lt;li&gt;Elixir&lt;/li&gt;
-&lt;li&gt;Python&lt;/li&gt;
-&lt;li&gt;C++&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I really-really want to make using the above:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a beautiful distributed web app&lt;/li&gt;
-&lt;li&gt;a game engine&lt;/li&gt;
-&lt;li&gt;a game&lt;/li&gt;
-&lt;li&gt;more distributed web apps&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;hellip;and much more!&lt;/p&gt;
-&lt;p&gt;Terraform, Kubernetes, Docker, Kafka, SQL, NoSQL you name it. I will be using &lt;a href=&#34;https://domeeno.github.io/tags/&#34; target=&#34;_blank&#34;&gt;tags&lt;/a&gt; so you can easily find my posts by topic.&lt;/p&gt;
-&lt;h2 id=&#34;--final-thanks&#34;&gt;- Final Thanks&lt;/h2&gt;
-&lt;p&gt;If this is the kind of things you&amp;rsquo;re interested in, check out my &lt;a href=&#34;https://twitter.com/dominic_whtver&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt; (which you can also find on the top of this page) where I will anounce when I post something.&lt;/p&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;p&gt;Cheers,&lt;br&gt;
-Yours forever, good guy Developer,&lt;br&gt;
-Flocea Dominic.&lt;/p&gt;
-&lt;h2 id=&#34;buy-me-a-coffee&#34;&gt;Buy me a coffee&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee.&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;Glad you&amp;rsquo;re here, I can tell you something about myself and why I began blogging. I&amp;rsquo;m a software developer, probably just like you, or maybe not, but for one I&amp;rsquo;m certain - We learn our whole life and just like you I&amp;rsquo;m learning new things everywhere I turn, intentionally or unintentionally.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

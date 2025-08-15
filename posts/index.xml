@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Dominic Flocea</title>
     <link>https://domeeno.github.io/posts/</link>
-    <description>Dominic Flocea (Posts)</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Posts on Dominic Flocea</description>
+    <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 19 May 2023 16:53:30 +0300</lastBuildDate>
-    
     <atom:link href="https://domeeno.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
     <item>
       <title>🌿 Kotlin: No IF-ELSE statement?!</title>
       <link>https://domeeno.github.io/posts/kotlin-expressions/</link>
       <pubDate>Fri, 19 May 2023 16:53:30 +0300</pubDate>
-      
       <guid>https://domeeno.github.io/posts/kotlin-expressions/</guid>
       <description>&lt;/br&gt;
 &lt;ul&gt;
@@ -31,71 +27,12 @@
 &lt;/br&gt;
 &lt;p&gt;This post highlights the great practice of programming languages that are &lt;strong&gt;expressive&lt;/strong&gt; and how they avoid the design flaw of &lt;strong&gt;statements&lt;/strong&gt; used in languages like &lt;strong&gt;Java&lt;/strong&gt;, &lt;strong&gt;C#&lt;/strong&gt; and &lt;strong&gt;GO&lt;/strong&gt;. It gives a deeper meaning to the everyday &lt;code&gt;if&lt;/code&gt; code you are so used to writing by now.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;In Kotlin there are no &lt;code&gt;if&lt;/code&gt; statements. And there&amp;rsquo;s a good reason why. &lt;strong&gt;Kotlin&lt;/strong&gt; is a functional expressive language, and that&amp;rsquo;s why &lt;code&gt;if&lt;/code&gt; is treated as an &lt;em&gt;&lt;strong&gt;expression&lt;/strong&gt;&lt;/em&gt; instead of a statement. Inspired by languages like &lt;strong&gt;Haskell&lt;/strong&gt;, &lt;strong&gt;Ruby&lt;/strong&gt; and the beloved &lt;strong&gt;Rust&lt;/strong&gt; they all have in common that they treat their &lt;code&gt;if&lt;/code&gt;s as expressions.&lt;/p&gt;
-&lt;p&gt;So what is the difference and how is this design choice better than the traditional broadly used &lt;code&gt;if&lt;/code&gt; statement?&lt;/p&gt;
-&lt;/br&gt;
-&lt;h2 id=&#34;-statements&#34;&gt;📜 Statements&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s see &lt;strong&gt;Java&lt;/strong&gt;&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; statement:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 75&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;final&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; discount &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;15&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; discountedPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 100&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    discountedPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;originalPrice &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; discount&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    discountedPrice &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; originalPrice&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-System&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;discountedPrice&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;p&gt;The &lt;code&gt;if&lt;/code&gt; code above does a simple check for discount eligibility. If the original price is greater than 100, then a discount is applied. This is an example of how if statements are used for flow control.&lt;/p&gt;
-&lt;/br&gt;
-&lt;p&gt;In other words, the if statement has side effects (change of discountedPrice based on the condition). They change state which can lead to unexpected behavior and bugs.&lt;/p&gt;
-&lt;p&gt;How is this different from an expression? Well to give you the answer we&amp;rsquo;ll move on to Kotlin&amp;rsquo;s expressions.&lt;/p&gt;
-&lt;h2 id=&#34;-expressions&#34;&gt;🧮 Expressions&lt;/h2&gt;
-&lt;p&gt;Here&amp;rsquo;s a peak at Kotlin&amp;rsquo;s &lt;code&gt;if&lt;/code&gt; expression:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; originalPrice = &lt;span style=&#34;color:#ae81ff&#34;&gt;75.0&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; discount = &lt;span style=&#34;color:#ae81ff&#34;&gt;0.15&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; discountedPrice = &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (originalPrice &amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100.0&lt;/span&gt;) {
-    originalPrice - (originalPrice * discount)
-} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
-    originalPrice
-}
-
-println(discountedPrice)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Again you&amp;rsquo;re dealing with the familiar &lt;code&gt;if&lt;/code&gt; condition but this time it is a bit different - this particular &lt;code&gt;if&lt;/code&gt; is an &lt;strong&gt;expression&lt;/strong&gt;. Expressions, unlike statements, always return a value. They allow the developer to completely avoid side effects, giving results that are more predictable and less error prone.&lt;/p&gt;
-&lt;p&gt;Take a look at the &lt;code&gt;discountedPrice&lt;/code&gt; - it is declared as a &lt;code&gt;val&lt;/code&gt;, and it is how Kotlin declares immutable (a constant if you may) variables. In Kotlin, when declaring something, you&amp;rsquo;re always put before the choice of using &lt;code&gt;val&lt;/code&gt; or &lt;code&gt;var&lt;/code&gt;. It is the first keyword used in variable declarations. It forces the developer to be mindful about the mutability of the variable.&lt;/p&gt;
-&lt;h2 id=&#34;-the-importance-of-the-expression-vs-statement-distinction&#34;&gt;🧘 The importance of the Expression vs Statement distinction&lt;/h2&gt;
-&lt;p&gt;The Java, C# and languages alike using statements unfortunately expose the developer at the risk of missing and introducing unexpected side effects in his code.&lt;/p&gt;
-&lt;p&gt;How does this improve your code?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Expressions Improve Redability&lt;/strong&gt; - It makes it easier to read and understand the code.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Expressions Give Predictable Outcomes&lt;/strong&gt; - The last thing you want to do when writing code is to guess the results. By returning a result, you can completely avoid modifying states or values.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Immutability and Multi-threading&lt;/strong&gt; - &lt;code&gt;if&lt;/code&gt; expressions promote immutability by default, and immutability is a great match when writing multi-threaded code. Using &lt;code&gt;if&lt;/code&gt; statements in mutli-threading environment, may result in unexpected behavior and unwanted race conditions which is hard to detect and debug - the perfect formula for disaster. Immutable variables are thread safe as their value is unlikely to ever change.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br/&gt;
-&lt;h2 id=&#34;-conclusion&#34;&gt;📝 Conclusion&lt;/h2&gt;
-&lt;p&gt;Some other operators that are expressions in Kotlin are &lt;code&gt;when&lt;/code&gt;, &lt;code&gt;try/catch&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt; and &lt;code&gt;while&lt;/code&gt; loops - meaning they all return a value by the end of their execution. &lt;a href=&#34;https://kotlinlang.org/docs/control-flow.html&#34;&gt;Read more&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This was a short mini-post which highlights the difference between &lt;strong&gt;expressions&lt;/strong&gt; and &lt;strong&gt;statements&lt;/strong&gt;. It is a great insight to have and a nice distinction to know when writing code in different languages. Look out for state changes and always use constants as the first choice when declaring variables.&lt;/p&gt;
-&lt;br/&gt;
-&lt;p&gt;Read my other article on &lt;a href=&#34;http://localhost:1313/posts/kotlin-intro/&#34;&gt;Kotlin&amp;rsquo;s pragmatic approach&lt;/a&gt; to learn more about the beautiful language that is Kotlin.&lt;/p&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;p&gt;Cheers,&lt;br&gt;
-Yours forever, good guy Developer,&lt;br&gt;
-Flocea Dominic.&lt;/p&gt;
-&lt;h3 id=&#34;-buy-me-a-coffee&#34;&gt;☕ Buy me a coffee&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee.&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;In Kotlin there are no &lt;code&gt;if&lt;/code&gt; statements. And there&amp;rsquo;s a good reason why. &lt;strong&gt;Kotlin&lt;/strong&gt; is a functional expressive language, and that&amp;rsquo;s why &lt;code&gt;if&lt;/code&gt; is treated as an &lt;em&gt;&lt;strong&gt;expression&lt;/strong&gt;&lt;/em&gt; instead of a statement. Inspired by languages like &lt;strong&gt;Haskell&lt;/strong&gt;, &lt;strong&gt;Ruby&lt;/strong&gt; and the beloved &lt;strong&gt;Rust&lt;/strong&gt; they all have in common that they treat their &lt;code&gt;if&lt;/code&gt;s as expressions.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Practical Kotlin Intro: Pragmatism lvl. 80</title>
       <link>https://domeeno.github.io/posts/kotlin-intro/</link>
       <pubDate>Sat, 13 May 2023 13:15:42 +0300</pubDate>
-      
       <guid>https://domeeno.github.io/posts/kotlin-intro/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#best-features&#34;&gt;Best Features:&lt;/a&gt;
@@ -109,208 +46,12 @@ Flocea Dominic.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Kotlin has experienced an immense growth in popularity, and it&amp;rsquo;s easy to see why. You will personally love the language and its features; by the end, you will want to advocate for it too.&lt;/p&gt;
-&lt;p&gt;I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&amp;rsquo;t tried it to do so after reading this article.&lt;/p&gt;
-&lt;p&gt;It is an incredibly versatile language that could really take the title of a Full-Stack Language. Engineers at JetBrains have worked hard to create Integrated Development Environments (IDEs) for many different languages, and Kotlin is the result of years of experience.&lt;/p&gt;
-&lt;p&gt;It takes the best features of different languages, and I would like to highlight these features that I love and that hopefully will make you go &amp;ldquo;hmm, that&amp;rsquo;s pretty cool.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Here it goes, an introduction to one of my favorite languages so far - Kotlin.&lt;/p&gt;
-&lt;h2 id=&#34;best-features&#34;&gt;Best Features:&lt;/h2&gt;
-&lt;h3 id=&#34;--concise-write-less-do-more&#34;&gt;- Concise: Write less, do more.&lt;/h3&gt;
-&lt;p&gt;Kotlin is the perfect example of &amp;ldquo;less is more&amp;rdquo;. If you write Kotlin, you write much less boilerplate code.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Extension functions&lt;/strong&gt; - Similar to &lt;strong&gt;C#&lt;/strong&gt;, it allows you to extend classes with new functionality without having to inherit from the class or use design patterns such as Decorator, resulting in much less code to maintain later on. Kotlin&amp;rsquo;s extension functions are even more powerful and concise than C#&amp;rsquo;s because they can be used to extend classes with new functionality even if you don&amp;rsquo;t have access to the source code of the class, making your code that much more flexible and adaptive.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// example of extension functions in C#
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; ExtensionMethods
-{
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;StringExtensions&lt;/span&gt;
-    {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; IsPalindrome(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; str)
-        {
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; charArray = str.ToCharArray();
-            Array.Reverse(charArray);
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; reversedStr = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;(charArray);
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; str.Equals(reversedStr, StringComparison.OrdinalIgnoreCase);
-        }
-    }
-
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Program&lt;/span&gt;
-    {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; Main(&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;[] args)
-        {
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt; word = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;radar&amp;#34;&lt;/span&gt;;
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; isPalindrome = word.IsPalindrome();
-            Console.WriteLine(&lt;span style=&#34;color:#e6db74&#34;&gt;$&amp;#34;Is \&amp;#34;&lt;/span&gt;{word}&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; a palindrome? {isPalindrome}&amp;#34;&lt;/span&gt;);
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Kotlin extension function
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;String&lt;/span&gt;.isPalindrome(): Boolean {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; reversedStr = &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.reversed()
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.equals(reversedStr, ignoreCase = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
-}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; word = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;radar&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; isPalindrome = word.isPalindrome()
-    println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Is &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$word&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; a palindrome? &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$isPalindrome&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For the curious ones, it can be used as an Adapter pattern. Here, we receive an external API user and can easily convert it to our internal API user with absolute grace:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;// external Api data class
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;User&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; firstName: String, &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; lastName: String, &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; age: Int)
-
-&lt;span style=&#34;color:#75715e&#34;&gt;// internal Api data class
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Person&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; personName: String, &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; personAge: Int)
-
-&lt;span style=&#34;color:#75715e&#34;&gt;// Adapter example
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;User&lt;/span&gt;.toPerson(): Person {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; Person(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$firstName&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$lastName&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, age)
-}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;// usage
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getPersonFromApi&lt;/span&gt;(): Person {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; externalApi.getUser().toPerson() &lt;span style=&#34;color:#75715e&#34;&gt;// no need to create a new Person object explicitly and assign the values
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br/&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Argument-Matching Syntax&lt;/strong&gt; - One of my favorite features in &lt;strong&gt;Elixir&lt;/strong&gt;, also found in &lt;strong&gt;Erlang&lt;/strong&gt; and &lt;strong&gt;Scala&lt;/strong&gt;, is the argument-matching syntax. It allows you, the pragmatic developer you are, to write much more readable code. Let&amp;rsquo;s take a look at how it&amp;rsquo;s done in Java, then in Kotlin:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Developer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String name&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; level&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Developer&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String name&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; level&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; name&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;level&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; level&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; name&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getLevel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; level&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Main&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-        Developer developer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Developer&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; 80&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-        &lt;span style=&#34;color:#75715e&#34;&gt;// No Destructuring Declaration in Java
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        String name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; developer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; level &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; developer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getLevel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-        System&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Name: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;, Level: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; level&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Developer&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; name: String, &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; level: Int)
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;(&lt;/span&gt;name, level) = Developer(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// Destructuring declaration
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Name: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$name&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;, Level: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$level&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br/&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Data Classes&lt;/strong&gt; - Like &lt;strong&gt;C#&lt;/strong&gt;&amp;rsquo;s &lt;strong&gt;Record Types&lt;/strong&gt; and &lt;strong&gt;F#&lt;/strong&gt;&amp;rsquo;s &lt;strong&gt;Record Types&lt;/strong&gt;, as seen in the example above, allows you to create classes that are used to hold data/state and not behavior. It is a very useful feature that allows you to write less code and extremely useful with APIs when using Data Transfer Objects.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br/&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Named arguments&lt;/strong&gt; - Similar to Groovy, Python, Ruby, Scala, it helps you, the developer to improve your readability and your standing amongst the colleagues.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greet&lt;/span&gt;(name: String, message: String) {
-    println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$message&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;, &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$name&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;!&amp;#34;&lt;/span&gt;)
-}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-    greet(name = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;, message = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// Named arguments
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    greet(message = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hi&amp;#34;&lt;/span&gt;, name = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Jane&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// Or even with different order
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It even supports default values for function arguments:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greet&lt;/span&gt;(name: String, message: String = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;) {
-    println(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$message&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;, &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$name&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;!&amp;#34;&lt;/span&gt;)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DSL&lt;/strong&gt; - The cherry on top and evidence of the elegant, graceful, and concise nature of Kotlin is the ability to create internal DSLs (Domain Specific Language). While it&amp;rsquo;s an advanced topic, Kotlin makes it easy to work with. It&amp;rsquo;s an extremely powerful tool, and I&amp;rsquo;ll provide a simple example of how it can be used to create a concise syntax for creating objects:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-kotlin&#34; data-lang=&#34;kotlin&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Developer&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; name: String, &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; level: Int)
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;DeveloperBuilder&lt;/span&gt; {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; name: String = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; level: Int = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;build&lt;/span&gt;(): Developer {
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; Developer(name, level)
-    }
-}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;developer&lt;/span&gt;(block: DeveloperBuilder.() &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; Unit): Developer {
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; builder = DeveloperBuilder()
-    builder.block()
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; builder.build()
-}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-    &lt;span style=&#34;color:#75715e&#34;&gt;// declare a person using the DSL syntax
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;val&lt;/span&gt; developer = developer {
-        name = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;John&amp;#34;&lt;/span&gt;
-        level = &lt;span style=&#34;color:#ae81ff&#34;&gt;81&lt;/span&gt;
-    }
-
-    println(developer)
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Takeaways:&lt;/strong&gt;
-Kotlin stands by the principle of &amp;ldquo;less is more&amp;rdquo; and absolutely delivers on it. As a developer, you will love the experience of writing less code while achieving more. With Kotlin, you have fewer lines of code to maintain, refactor, fix, debug, or read. Surprisingly, this reduction in code doesn&amp;rsquo;t compromise readability; in fact, it enhances it. Now, let&amp;rsquo;s explore how Kotlin empowers you to be versatile in your development process.&lt;/p&gt;
-&lt;h3 id=&#34;--versatile-swiss-army-knife-of-languages&#34;&gt;- Versatile: Swiss-Army Knife of Languages&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Multiplatform&lt;/strong&gt; - Kotlin is multiplatform language, meaning you can use it for many different platforms wihtout having to learn a new language. Android fully embraced Kotlin as one of their official languages. It gains popularity as a language for backend server development. It can be transpiled to JavaScript code or native binaries to run on iOS, Windows, Linux, Mac, even to WebAssembly to run in browsers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Self-Expression&lt;/strong&gt; - Kotlin is a &lt;strong&gt;multi-paradigm programming language&lt;/strong&gt;. Choosing it does not marry you to one specific way to do things. Which can be both good and bad. But Kotlin knows you are a pragmatic developer and it gives you the freedom of choice on how to do things your way. This is great for Functional Programming (FP), Kotlin has a lot of features that make it a great choice for FP.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Interoperability&lt;/strong&gt; - Kotlin is a language which runs on the Java Virtual Machine (JVM) just like Java (of course), Scala and Groovy. It can be used alognside Java. This is great for a number of reasons. It means you can still use your Java libraries, frameworks, tools, etc. And if you plan on fully migrating to Kotlin, it can be done gradually, in sprints, without having to rewrite everything at once.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Tooling&lt;/strong&gt; - Kotlin has great tooling support. It has a great IDE support being from the guys that build IDEs for a living. If you work with Java and have &lt;strong&gt;Intellij&lt;/strong&gt; already installed, well great news, you can start writing Kotlin right now.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Community&lt;/strong&gt; - Kotlin has a great community, it is a language that is growing in popularity. Spring Framework, one of the most popular Java frameworks, and used by many-many enterprise projects has officially embraced Kotlin as one of their official languages.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Takeaways:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Kotlin is here to stay, it is used across many different platforms, offers a lot of freedom for self-expression, it is highly interoperable with Java (one of the most used languages in enterprise), has a great tooling and a big welcoming community.&lt;/p&gt;
-&lt;h3 id=&#34;--performance-coroutines-and-reactive-programming&#34;&gt;- Performance: Coroutines and Reactive Programming&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Async and Coroutines&lt;/strong&gt; -
-We&amp;rsquo;re reaching a point where hardware performance is slowly starting to reach its limits. The hardware isn&amp;rsquo;t the bottleneck anymore, and software is where we can improve by harnessing the power of multi-threaded and asynchronous programming.
-Kotlin has innovated in the area of asynchronous programming with the introduction of &lt;strong&gt;Coroutines&lt;/strong&gt;. It has made writing asynchronous code efficient and, most importantly, easier to write and read. This is great for the uninitiated in the black magic world of multi-threaded programming, providing a gentle introduction and more room to avoid errors.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Reactive Programming&lt;/strong&gt; - Kotlin has support for reactive programming which helps you write asynchronous, event-driven code in a declarative way. Spring WebFlux is a great example of a reactive framework that can be used with Kotlin to write reactive back-end code. I am working currently on my own project which I want to make fully reactive from front-end down to the database connection, and luckily I can use Kotlin for that together with Spring WebFlux, which helps me show the user results much faster, takes care of heavy system loads with integrated backpressure mechanisms and overall beautiful syntax in my opinion.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Takeaways:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Kotlin has innovated asynchronous programming with the introduction of Coroutines, allowing even the uninitiated to write asynchronous code. It also has support for reactive programming which is great for writing event-driven code which I think will be required more and more.&lt;/p&gt;
-&lt;h3 id=&#34;--conclusion-final-thoughts-and-thanks&#34;&gt;- Conclusion, final thoughts and thanks&lt;/h3&gt;
-&lt;p&gt;I hope you enjoyed the article, would love to hear your feedback, if you liked it please share it with someone who you think might find this interesting. I love how programming languages tackle different challenges and from my experience by far Kotlin is one of the most versatile ones while also being a pleasure to write in. Thank you so much for reading, I hope you have a great day, would love to hear your feedback, you can find me on socials at the top of this page.&lt;/p&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;p&gt;Cheers,&lt;br&gt;
-Yours forever, good guy Developer,&lt;br&gt;
-Flocea Dominic.&lt;/p&gt;
-&lt;h3 id=&#34;buy-me-a-coffee&#34;&gt;Buy me a coffee&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee.&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;I am not planning to stop using it in my future projects because I love writing Kotlin, and I want to share what I love most about it and try to convince those who haven&amp;rsquo;t tried it to do so after reading this article.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Distributed Systems #0 - General System Architecture</title>
       <link>https://domeeno.github.io/posts/distributed-0/</link>
       <pubDate>Sun, 18 Sep 2022 16:19:32 +0300</pubDate>
-      
       <guid>https://domeeno.github.io/posts/distributed-0/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#1-project-description--goals-non-technical&#34;&gt;1. Project Description &amp;amp; Goals (Non Technical)&lt;/a&gt;&lt;/li&gt;
@@ -330,107 +71,12 @@ Flocea Dominic.&lt;/p&gt;
 &lt;br/&gt;
 &lt;img src=&#34;https://www.mindmapper.com/wp-content/uploads/2019/01/mind-map-graphic-1024x640.jpg&#34;/&gt;
 &lt;h2 id=&#34;1-project-description--goals-non-technical&#34;&gt;1. Project Description &amp;amp; Goals (Non Technical)&lt;/h2&gt;
-&lt;p&gt;The app will be a &lt;em&gt;&lt;strong&gt;medium + udemy with Mind Maps&lt;/strong&gt;&lt;/em&gt;. Mind maps are a way to store information on different &lt;strong&gt;subjects&lt;/strong&gt; to improve the learning experience through a visually structured hierarchical tree. Subjects are presented from top level views to more advanced topics that are related to each other and grouped between.&lt;/p&gt;
-&lt;p&gt;The system will be back-end focused, but a small front-end interface may be tackled to ease the interaction with the server-side flows.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;&lt;strong&gt;subject&lt;/strong&gt;&lt;/em&gt; refers to an entire tree composed of topics related to the subject.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&lt;strong&gt;topics&lt;/strong&gt;&lt;/em&gt; refer to a subject&amp;rsquo;s modules and can be referenced or refere to other topics that all relate to one subject. They will be stored as markdown files.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br/&gt;
-&lt;p&gt;&lt;strong&gt;The app will:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Store user subjects and topics;&lt;/li&gt;
-&lt;li&gt;Organize the topics in a hierarchical manner;&lt;/li&gt;
-&lt;li&gt;Log on/Log in users;&lt;/li&gt;
-&lt;li&gt;Save user&amp;rsquo;s saved/liked subjects;&lt;/li&gt;
-&lt;li&gt;Save subject number of saves and likes.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Nice to have &lt;em&gt;(depending on the time &amp;amp; complexity)&lt;/em&gt;:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Front-end interface&lt;/li&gt;
-&lt;li&gt;Real-time topic editing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h2 id=&#34;2-system-architecture&#34;&gt;2. System Architecture&lt;/h2&gt;
-&lt;div class=&#34;mxgraph&#34; style=&#34;max-width:100%;border:1px solid transparent;&#34; data-mxgraph=&#34;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2022-09-19T16:25:02.027Z\&amp;quot; agent=\&amp;quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;L0eQ7UA3Sl5gjPfChSrV\&amp;quot; version=\&amp;quot;20.3.2\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;cb_ynF3PT7aozFD-mhS3\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;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&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://viewer.diagrams.net/js/viewer-static.min.js&#34;&gt;&lt;/script&gt;
-&lt;ol&gt;
-&lt;li&gt;Front-end or the interface will be written with - &lt;span style=&#34;color: #61DBFB;&#34;&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Api-Gateway written in - &lt;span style=&#34;color: #7B6686;&#34;&gt;&lt;strong&gt;Elixir&lt;/strong&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Back-end written in - &lt;span style=&#34;color: #F28800;&#34;&gt;&lt;strong&gt;Kotlin&lt;/strong&gt;&lt;/span&gt;
-&lt;ul&gt;
-&lt;li&gt;User Service:
-&lt;ul&gt;
-&lt;li&gt;POST/PUT users&lt;/li&gt;
-&lt;li&gt;POST/PUT/DELETE saves/likes/subjects&lt;/li&gt;
-&lt;li&gt;Authorize users&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;File bucket:
-&lt;ul&gt;
-&lt;li&gt;POST/PUT markdown files&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Course Service:
-&lt;ul&gt;
-&lt;li&gt;POST/PUT subjects/topics&lt;/li&gt;
-&lt;li&gt;Track hierarchy&lt;/li&gt;
-&lt;li&gt;Store topic&amp;rsquo;s attached document&amp;rsquo;s location&lt;/li&gt;
-&lt;li&gt;Keep track of the number of saves, clicks and likes
-&lt;br/&gt;
-&lt;br/&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;3-backend-communication-example&#34;&gt;3. Backend communication example:&lt;/h2&gt;
-&lt;div class=&#34;mxgraph&#34; style=&#34;max-width:100%;border:1px solid transparent;&#34; data-mxgraph=&#34;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers tags lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile host=\&amp;quot;app.diagrams.net\&amp;quot; modified=\&amp;quot;2022-09-19T16:37:20.325Z\&amp;quot; agent=\&amp;quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36\&amp;quot; etag=\&amp;quot;H_z5jgmcIf-8iOPRzjLf\&amp;quot; version=\&amp;quot;20.3.2\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;dKCyTXUS-7JZHuPryBX6\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;7Zxfc6M2EMA/jacznUkGEBj8GNvJ5aGduWl60/RRBsXQYMQJYTv99JVA/JPAcRxM6Nh3cxdYwQqkn3ZXu9xNwGKz/0Zg7P+OPRRODM3bT8ByYhi6NgPsB5e85RJraueCNQk8cVEleAr+RcWdQpoGHkoaF1KMQxrETaGLowi5tCGDhOBd87IXHDZ7jeEaKYInF4aq9K/Ao34udSytkj+iYO0XPeuaaNnA4mIhSHzo4V1NBO4nYEEwpvnRZr9AIR+8Ylzy+x46WssHIyiix9zwuJw/7r2E7F+dyNv+fE7j5fONkWvZwjAVLywelr4VI4Ai744PJDtzQ5gkgTsBc59uQibQ2SHBaeQh3onGzhJK8Cta4BCT7HZ2jWmbTtlSDCLIJJDQQneEI9bhHO0D+iw08+O/ud5bS5wt96Kb7ORNnKgjIQYnwSlx0YHX18XrIq9BgRjAbwhvECVv7IJdNffF1Pu1aS9kBIWQBtsmO1AguC7VlT18xwF7ZEMTywUUrIjFUrJTqMhfSNxVn+t3FFmyIjbya0QVReyg9tqVKEPpA1jpbVxNQzZa8xU7WNNs1nLBC86evCJu+jPFRcNNklmEO3aBrsf7/DbRXij6kSDC2p8Q2QZstoVa9ty55mZvTFx7Agn1CmWO384PKHqKYUbQjpm3JvdN0gW+L0EY1uC/f5jrpiHepS7PfmeLhzJgcMTEs4MobxGhaH+QUdFqTJtz74jTGsK60cKwqXXj2uDjwzCYF25krFEZGVPrycjIigY3MtaARmbBBiVBVzNTuRhzbGZmeuFmxh6XmXH6MjPOF5sZe0Az8xCE3MjMU/cV0Yu3MaYxMhtTdNYrC6DL5RAEaeZy0tU/fG/7CRzYgNMPzrkQwTBY8zl12TSyOBvM+fQFbIN8Jxo2gefxblohaxpU/thii6/rKkqMe3Nx1w86uuSedLuFHa2FHXA2dnSFHV2Zp086qHIEmw5Kl8YeHBh7DyZ+aTeG9WDF6hqJBzNkhJwTPZiyrdeH9WCG6sF6D41GTd5IgFI4kG3NqTsvw7KGBcpRgAJXoEawlbd7irGN2cBAzRSg8qyeiK1IZ2CT+DDmh+kmvHMprgcov8EVCr/jJBBR6QpTijctEQzFUjx8LGBdIXIf8YttNWakJfQFLWBNzxW9AHV3jV+va/7r99VADiZOdSJA9kZnXvNAjUquRI3BiwCrpzgXyO7o3ESpYcmVqDEEumB2IlH6rKnIHDj3B9S4ZCCeBskpjwQX3ZndWnZjog2tJ2KGzhabxtmJGXUVwgSjQku2RHZfvk3XZE3nBgu0gHUtQ3zFFxXTIuT+sjqEeeG1TnPctc6TrYysaHgrM2Sxs+ubinq658JNj1wBHYHpUTdZ5yuBPsEt52OJ3XSDomsF9DMVUFtrQWfQCqip7qbMvt3WqLfn7/s1Z1R+Ta6A2qfmGpUwXDZPZ3Zrllp7ty6KvJEApXAg1ytODZScgUvqlrrNvxas3o1UBq1YWernwePPBo99ASvr7tTMrmwJZgPn6azz76Cvmd08szudVb/Mpvk/9QMYOcs7+D7Z+j8WL8dOi2IT5CjxVDxmspM5Nx3de2RfP+Lz3uqiQhgXAv2W35Fvi90if0Ix+ytl8ccvSSlOavriTnVGp7pSi+ZBClcwa9n5iPCfMBsD6vNjP0AEEtfPOckaVlyeMK3eUQ8B+EOUw5HwJErC4h3eNyM1AzCI+CXFAy4Z1SsMiXfcS/7Kl6Z2w/78gZIYRwlqv623jEESQzeI1kxgVWd/8qBtyT9ybU8UYBZrvYSZsfADz0PRweTBoUXfQzRnyd++TtVorlxldVOgfILWXzzXVouVF1V3wujAmjI5fz/iEEOP417emy+ElVwE6QbNqq2mmpoQu3lekP/7c1IuHBbFM4dwBXgQgFuzX60Ay5XnIwBmp9W/48+dSPW/IYD7/wA=&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://viewer.diagrams.net/js/viewer-static.min.js&#34;&gt;&lt;/script&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;h2 id=&#34;4-other-technicalities&#34;&gt;4. Other Technicalities&lt;/h2&gt;
-&lt;h3 id=&#34;--elixir-gateway&#34;&gt;- Elixir Gateway&lt;/h3&gt;
-&lt;p&gt;The functional programming language Elixir incorporates qualities that a well designed Distributed System should have: Scalable, Fault-Tolerant, Reliable, Concurrent are the most important ones. And a gateway is a very important piece of the system - if any of the backend system falls, the other should work just fine and we could still use the app in some way, the story with the gateway is very different. Elixir is built to last and endure high loads. It&amp;rsquo;s strategy for let it fail and supervision builds trust with the developer that the service will do fine. The gateway will use:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Load Balancing - distribute requests evenly to the services, based on load.&lt;/li&gt;
-&lt;li&gt;Circuit breaker - it will trip and return a failure response and log it internally&lt;/li&gt;
-&lt;li&gt;Outbound REST API calls&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;--sql-and-nosql-back-end&#34;&gt;- SQL and NoSQL (Back-end)&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Postgres (SQL)&lt;/strong&gt; will be used to store users table which shouldn&amp;rsquo;t be subject to future change. Once well defined it shouldn&amp;rsquo;t be a problem to be left as is, and future modification will be improbable and we can rely on SQL&amp;rsquo;s performance to retrieve and store data. 
-&lt;strong&gt;MongoDB (NoSQL)&lt;/strong&gt; is a flexible document based NoSQL database, if there are any changes in the future or the system will scale, we can leverage its qualities to make those kind of transitions less problematic or even seamlessly compared to the SQL databases.&lt;/p&gt;
-&lt;h3 id=&#34;--kotlin-back-end&#34;&gt;- Kotlin (Back-end)&lt;/h3&gt;
-&lt;p&gt;Kotlin has a powerful Reactive programming API which empowers Responsivness, Resiliency, Elasticity and is Message Driven - qualities which the system will only benefit from. Therefore we can implement the following:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Task distribution between services&lt;/li&gt;
-&lt;li&gt;Task timeout&lt;/li&gt;
-&lt;li&gt;Status Endpoints&lt;/li&gt;
-&lt;li&gt;Unit testing&lt;/li&gt;
-&lt;li&gt;RPC (remote procedure call)&lt;/li&gt;
-&lt;li&gt;Concurrent Task limit&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;--cache&#34;&gt;- Cache&lt;/h3&gt;
-&lt;p&gt;The cache service will prevent the services from unnecessary overloading. If we store public information that was accessed before we can store it and not make unnecessary calls to the services through the network - it can save us time and enhance system&amp;rsquo;s performance.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Query Language - it will be implemented in &lt;span style=&#34;color: #7B6686;&#34;&gt;elixir&lt;/span&gt; and it will use a DSL to retrieve and store data.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;p&gt;Cheers,&lt;br&gt;
-Yours forever, good guy Developer,&lt;br&gt;
-Flocea Dominic.&lt;/p&gt;
-&lt;h2 id=&#34;buy-me-a-coffee&#34;&gt;Buy me a coffee&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee.&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;The app will be a &lt;em&gt;&lt;strong&gt;medium + udemy with Mind Maps&lt;/strong&gt;&lt;/em&gt;. Mind maps are a way to store information on different &lt;strong&gt;subjects&lt;/strong&gt; to improve the learning experience through a visually structured hierarchical tree. Subjects are presented from top level views to more advanced topics that are related to each other and grouped between.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>To my readers...</title>
       <link>https://domeeno.github.io/posts/hi/</link>
       <pubDate>Wed, 20 Oct 2021 00:35:42 +0300</pubDate>
-      
       <guid>https://domeeno.github.io/posts/hi/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#--my-why&#34;&gt;- My Why&lt;/a&gt;&lt;/li&gt;
@@ -440,44 +86,7 @@ Flocea Dominic.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;br/&gt;
 &lt;p&gt;Hi there, How are you doing? Oh, fantastic? you should keep it up, you&amp;rsquo;re doing great!&lt;/p&gt;
-&lt;p&gt;Glad you&amp;rsquo;re here, I can tell you something about myself and why I began blogging. I&amp;rsquo;m a software developer, probably just like you, or maybe not, but for one I&amp;rsquo;m certain - We learn our whole life and just like you I&amp;rsquo;m learning new things everywhere I turn, intentionally or unintentionally.&lt;/p&gt;
-&lt;p&gt;You can take useful information from right here. I like to share the challenges I faced and how I overcome them, maybe it will inspire you and help you in your own career, and path to becoming who you want to be. Fortunately the answers aren&amp;rsquo;t always obvious and clear, but that&amp;rsquo;s the beauty of life, you have to turn for some help discovering new perspectives and ways to solve and overcome. I sure did, more than I care to admit, and I want to do my part and give back to the community I&amp;rsquo;ve been a part of for the last few years.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;Sometimes the best way to solves your own problems, is to help someone else.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;&amp;ndash; &lt;cite&gt;Uncle Iroh&lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;br/&gt;
-&lt;h2 id=&#34;--my-why&#34;&gt;- My Why&lt;/h2&gt;
-&lt;p&gt;A lot of my inspiration to write will be drawn from the frustrations that I have maybe with a programming language, or maybe with a framework or frustrations that I generally have as a developer or as a citizen of this planet. I want to share them, maybe it will help someone just like countless others helped me throughout my life.&lt;/p&gt;
-&lt;h2 id=&#34;--about-the-blog&#34;&gt;- About the blog&lt;/h2&gt;
-&lt;p&gt;I will try my best to write as consistenly as I can, being a student, a software developer and a friend to my loved ones.&lt;/p&gt;
-&lt;p&gt;The blog&amp;rsquo;s main focus will be developer oriented. I will write about languages, projects that I make, I want to focus on System Design, System Architecture, little useful hacks for developers or something interesting that I learned and feeling like sharing it and talking about it. Here&amp;rsquo;s some programming languages that I like or want to use more of:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Kotlin&lt;/li&gt;
-&lt;li&gt;Elixir&lt;/li&gt;
-&lt;li&gt;Python&lt;/li&gt;
-&lt;li&gt;C++&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I really-really want to make using the above:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a beautiful distributed web app&lt;/li&gt;
-&lt;li&gt;a game engine&lt;/li&gt;
-&lt;li&gt;a game&lt;/li&gt;
-&lt;li&gt;more distributed web apps&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;hellip;and much more!&lt;/p&gt;
-&lt;p&gt;Terraform, Kubernetes, Docker, Kafka, SQL, NoSQL you name it. I will be using &lt;a href=&#34;https://domeeno.github.io/tags/&#34; target=&#34;_blank&#34;&gt;tags&lt;/a&gt; so you can easily find my posts by topic.&lt;/p&gt;
-&lt;h2 id=&#34;--final-thanks&#34;&gt;- Final Thanks&lt;/h2&gt;
-&lt;p&gt;If this is the kind of things you&amp;rsquo;re interested in, check out my &lt;a href=&#34;https://twitter.com/dominic_whtver&#34; target=&#34;_blank&#34;&gt;twitter&lt;/a&gt; (which you can also find on the top of this page) where I will anounce when I post something.&lt;/p&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;p&gt;Cheers,&lt;br&gt;
-Yours forever, good guy Developer,&lt;br&gt;
-Flocea Dominic.&lt;/p&gt;
-&lt;h2 id=&#34;buy-me-a-coffee&#34;&gt;Buy me a coffee&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.buymeacoffee.com/domeenodev&#34;&gt;P. S. If you liked the post consider buying me a coffee.&lt;/a&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;Glad you&amp;rsquo;re here, I can tell you something about myself and why I began blogging. I&amp;rsquo;m a software developer, probably just like you, or maybe not, but for one I&amp;rsquo;m certain - We learn our whole life and just like you I&amp;rsquo;m learning new things everywhere I turn, intentionally or unintentionally.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
